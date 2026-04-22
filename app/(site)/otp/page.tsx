@@ -1,45 +1,37 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
+import { ShieldIcon } from "@/components/icons";
 import { OtpForm } from "@/forms/otp-form";
 
 export const metadata: Metadata = {
   title: "Verify Login",
-  description:
-    "Verify your Prestige Trust Bank sign-in.",
+  description: "Verify your Prestige Trust Bank sign-in.",
 };
 
 export default function OtpPage() {
   return (
-    <section className="section-spacing">
-      <div className="container-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="rounded-[2.25rem] bg-[linear-gradient(145deg,#081426,#10223f)] p-8 text-white sm:p-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
-            Verification
-          </p>
-          <h1 className="mt-5 font-display text-5xl font-semibold leading-tight">
-            Verify your sign-in.
-          </h1>
-          <p className="mt-5 text-base leading-8 text-slate-300">
-            Enter the 6-digit code sent to your registered device.
-          </p>
+    <section className="relative flex min-h-[calc(100vh-5rem)] items-center justify-center overflow-hidden px-4 py-8 sm:px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(200,164,93,0.12),transparent_26%),linear-gradient(180deg,rgba(8,20,38,0.08),transparent_38%)]" />
 
-          <div className="mt-8 grid gap-4">
-            {[
-              "One-time passcode",
-              "Registered device",
-              "Secure access",
-            ].map((item) => (
-              <article
-                key={item}
-                className="rounded-[1.5rem] border border-white/10 bg-white/6 px-5 py-4 text-sm leading-7 text-slate-200"
-              >
-                {item}
-              </article>
-            ))}
+      <div className="relative mx-auto flex w-full max-w-md flex-col items-center">
+        <Link href="/" className="mb-5 flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-navy-950)] text-white shadow-lg shadow-slate-950/15">
+            <ShieldIcon className="h-5 w-5" />
           </div>
-        </div>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-navy-950)]">
+              Prestige Trust
+            </p>
+            <p className="text-[11px] uppercase tracking-[0.24em] text-[var(--color-gold)]">
+              Online Banking
+            </p>
+          </div>
+        </Link>
 
-        <OtpForm />
+        <div className="w-full">
+          <OtpForm />
+        </div>
       </div>
     </section>
   );
