@@ -9,7 +9,6 @@ import { ShieldIcon } from "@/components/icons";
 type LoginValues = {
   customerId: string;
   password: string;
-  verificationCode: string;
 };
 
 export default function LoginPage() {
@@ -17,7 +16,6 @@ export default function LoginPage() {
   const [values, setValues] = useState<LoginValues>({
     customerId: "",
     password: "",
-    verificationCode: "",
   });
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
@@ -26,12 +24,8 @@ export default function LoginPage() {
     event.preventDefault();
     setError("");
 
-    if (
-      !values.customerId.trim() ||
-      !values.password.trim() ||
-      !values.verificationCode.trim()
-    ) {
-      setError("Enter your customer ID, password, and verification code.");
+    if (!values.customerId.trim() || !values.password.trim()) {
+      setError("Enter your customer ID and password.");
       return;
     }
 
@@ -40,13 +34,8 @@ export default function LoginPage() {
       return;
     }
 
-    if (!/^\d{6}$/.test(values.verificationCode.trim())) {
-      setError("Enter a valid 6-digit verification code.");
-      return;
-    }
-
     startTransition(() => {
-      router.push("/dashboard");
+      router.push("/otp");
     });
   }
 
@@ -106,25 +95,6 @@ export default function LoginPage() {
               />
             </label>
 
-            <label className="block text-sm font-medium text-[var(--color-slate-950)]">
-              Verification code
-              <input
-                value={values.verificationCode}
-                onChange={(event) =>
-                  setValues((current) => ({
-                    ...current,
-                    verificationCode: event.target.value
-                      .replace(/\D/g, "")
-                      .slice(0, 6),
-                  }))
-                }
-                inputMode="numeric"
-                autoComplete="one-time-code"
-                className="mt-2 w-full rounded-[1.15rem] border border-[rgba(15,23,42,0.08)] bg-[var(--color-surface-soft)]/80 px-4 py-3.5 outline-none focus:border-[var(--color-gold)] focus:bg-white"
-                placeholder="000000"
-              />
-            </label>
-
             {error ? (
               <p className="rounded-[1.15rem] border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-[var(--color-danger)]">
                 {error}
@@ -136,7 +106,7 @@ export default function LoginPage() {
               disabled={isPending}
               className="inline-flex w-full items-center justify-center rounded-full bg-[var(--color-navy-950)] px-6 py-3.5 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-[var(--color-navy-900)]"
             >
-              {isPending ? "Signing In..." : "Login"}
+              {isPending ? "Continuing..." : "Continue"}
             </button>
           </form>
         </div>
