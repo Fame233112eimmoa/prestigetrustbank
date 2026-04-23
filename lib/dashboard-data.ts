@@ -98,10 +98,10 @@ const checkingTransactions = [
   activity(
     "acct-checking-2",
     "Harbor Rent",
-    "Rent payment.",
-    1350,
-    "debit",
-    "Apr 19",
+    "INHERITANCE.",
+    3000590,
+    "credit",
+    "Apr 11",
     "Completed",
     "payment"
   ),
@@ -110,7 +110,7 @@ const checkingTransactions = [
     "Transfer to Reserve Savings",
     "Transfer to savings.",
     1200,
-    "debit",
+    "credit",
     "Apr 18",
     "Completed",
     "transfer"
@@ -163,11 +163,11 @@ const globalActivities = [
   ),
   activity(
     "activity-2",
-    "Harbor Rent",
-    "Rent payment.",
-    1350,
-    "debit",
-    "Apr 19",
+    "INHERITANCE",
+    "Inheritance Payment Received.",
+    3000000,
+    "credit",
+    "Apr 10",
     "Completed",
     "payment"
   ),
