@@ -20,11 +20,7 @@ import {
 
 const navigation = [
   { label: "Home", href: "#top" },
-  { label: "Accounts", href: "#services" },
-  { label: "Cards", href: "/cards" },
-  { label: "Payments", href: "#digital-banking" },
   { label: "Support", href: "/contact" },
-  { label: "Login", href: "/login" },
 ];
 
 const services = [
@@ -117,10 +113,10 @@ export default function HomePage() {
       id="top"
       className="min-h-screen bg-[var(--color-ivory)] text-[var(--color-slate-950)]"
     >
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[var(--color-ivory)]/90 backdrop-blur-xl">
-        <div className="container-shell py-4">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[var(--color-ivory)]/92 backdrop-blur-xl">
+        <div className="container-shell py-3.5 sm:py-4">
           <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex min-w-0 items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-navy-950)] text-white shadow-lg shadow-slate-950/15">
                 <ShieldIcon className="h-5 w-5" />
               </div>
@@ -134,43 +130,38 @@ export default function HomePage() {
               </div>
             </Link>
 
-            <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+            <nav
+              className="hidden items-center gap-8 lg:flex"
+              aria-label="Primary navigation"
+            >
               {navigation.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-sm font-medium text-[var(--color-slate-700)] hover:text-[var(--color-navy-950)]"
+                  className="text-sm font-semibold text-[var(--color-slate-700)] hover:text-[var(--color-navy-950)]"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="hidden items-center gap-3 sm:flex">
-              <Link
-                href="/login"
-                className="rounded-full border border-[var(--color-line)] px-5 py-2.5 text-sm font-semibold text-[var(--color-navy-950)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
-              >
-                Login
-              </Link>
-              <Link
-                href="/open-account"
-                className="rounded-full bg-[var(--color-navy-950)] px-5 py-2.5 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-[var(--color-navy-900)]"
-              >
-                Open Account
-              </Link>
-            </div>
+            <Link
+              href="/login"
+              className="shrink-0 rounded-full bg-[var(--color-gold)] px-5 py-3 text-sm font-bold text-[var(--color-navy-950)] shadow-[0_14px_34px_rgba(200,164,93,0.26)] hover:-translate-y-0.5 hover:bg-[var(--color-gold-soft)] sm:px-7"
+            >
+              Login
+            </Link>
           </div>
 
           <nav
-            className="mt-4 flex gap-2 overflow-x-auto pb-1 lg:hidden"
+            className="mt-4 flex justify-center gap-2 overflow-x-auto pb-1 lg:hidden"
             aria-label="Mobile navigation"
           >
             {navigation.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="shrink-0 rounded-full border border-[var(--color-line)] bg-white px-4 py-2 text-sm font-medium text-[var(--color-navy-950)]"
+                className="shrink-0 rounded-full border border-[var(--color-line)] bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-navy-950)]"
               >
                 {item.label}
               </Link>
