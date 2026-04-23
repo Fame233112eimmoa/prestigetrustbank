@@ -238,7 +238,7 @@ const notifications = [
 export const initialDashboardState: DashboardState = {
   user: {
     fullName: "MARIA COX WALKER",
-    firstName: "MARIA",
+    firstName: "MARIA COX WALKER",
     email: "maria.cox.walker@prestigetrustbank.com",
     phone: "+44 20 7946 0186",
     relationshipManager: "Natalie Bennett",
