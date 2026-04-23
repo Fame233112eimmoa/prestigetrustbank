@@ -168,7 +168,7 @@ const globalActivities = [
     3000000,
     "credit",
     "Apr 10",
-    "Completed",
+    "Pending",
     "payment"
   ),
   activity(
@@ -252,7 +252,7 @@ export const initialDashboardState: DashboardState = {
       name: "Prestige Everyday Checking",
       type: "Checking Account",
       maskedNumber: "•••• 4182",
-      availableBalance: 451809.9,
+      availableBalance: 45180.9,
       status: "Active",
       recentTransactions: checkingTransactions,
     },
@@ -261,7 +261,7 @@ export const initialDashboardState: DashboardState = {
       name: "Prestige Reserve Savings",
       type: "Savings Account",
       maskedNumber: "•••• 7721",
-      availableBalance: 109087,
+      availableBalance: 10908,
       status: "Growth",
       recentTransactions: savingsTransactions,
     },
