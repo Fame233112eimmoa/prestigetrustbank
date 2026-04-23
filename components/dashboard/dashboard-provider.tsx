@@ -307,10 +307,10 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
         return current;
       }
 
-      if (resolvedType === "Bank" && !/^\d{9}$/.test(resolvedRouting)) {
+      if (resolvedType === "Bank" && !/^\d{6}$/.test(resolvedRouting)) {
         result = {
           ok: false,
-          message: "Enter a valid 9-digit routing number.",
+          message: "Enter a valid 6-digit sort code.",
         };
         return current;
       }
@@ -328,7 +328,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
           ? [resolvedEmail, referenceLabel]
           : [
               resolvedBankName,
-              `Routing ${resolvedRouting}`,
+              `Sort code ${resolvedRouting}`,
               `Acct ${referenceLabel || maskAccountNumber(resolvedAccountNumber)}`,
             ];
       const detailLabel = detailParts.filter(Boolean).join(" • ");
@@ -414,7 +414,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
           ? [resolvedEmail]
           : [
               resolvedBankName,
-              resolvedRouting ? `Routing ${resolvedRouting}` : "",
+              resolvedRouting ? `Sort code ${resolvedRouting}` : "",
               resolvedAccountNumber
                 ? `Acct ${maskAccountNumber(resolvedAccountNumber)}`
                 : "",
@@ -622,7 +622,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
       if (!Number.isFinite(normalizedLimit) || normalizedLimit < 500) {
         result = {
           ok: false,
-          message: "Choose a spending limit of at least $500.",
+          message: `Choose a spending limit of at least ${formatCurrency(500)}.`,
         };
         return current;
       }

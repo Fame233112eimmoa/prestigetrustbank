@@ -28,30 +28,30 @@ function activity(
 }
 
 export function formatCurrency(amount: number) {
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("en-GB", {
     style: "currency",
-    currency: "USD",
+    currency: "GBP",
   }).format(amount);
 }
 
 export function createDateLabel(date = new Date()) {
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat("en-GB", {
     month: "short",
     day: "numeric",
   }).format(date);
 }
 
-export const usBankOptions = [
-  "JPMorgan Chase Bank",
-  "Bank of America",
-  "Wells Fargo Bank",
-  "Citibank",
-  "Capital One Bank",
-  "PNC Bank",
-  "Truist Bank",
-  "U.S. Bank",
-  "TD Bank",
-  "Citizens Bank",
+export const ukBankOptions = [
+  "Barclays Bank",
+  "HSBC UK Bank",
+  "Lloyds Bank",
+  "NatWest",
+  "Santander UK",
+  "Royal Bank of Scotland",
+  "Nationwide Building Society",
+  "Halifax",
+  "TSB Bank",
+  "Metro Bank",
 ];
 
 export const dashboardNavItems: DashboardNavItem[] = [
@@ -237,12 +237,12 @@ const notifications = [
 
 export const initialDashboardState: DashboardState = {
   user: {
-    fullName: "Morgan Avery",
-    firstName: "Morgan",
-    email: "morgan.avery@prestigetrustbank.com",
-    phone: "+1 (203) 555-0186",
+    fullName: "MARIA COX WALKER",
+    firstName: "MARIA",
+    email: "maria.cox.walker@prestigetrustbank.com",
+    phone: "+44 20 7946 0186",
     relationshipManager: "Natalie Bennett",
-    branch: "New Haven Advisory Center",
+    branch: "London Private Banking Centre",
     memberSince: "2018",
     clientId: "PTB-10248",
   },
@@ -271,7 +271,7 @@ export const initialDashboardState: DashboardState = {
       id: "card-signature",
       name: "Prestige Signature Credit",
       type: "Signature Credit",
-      holder: "Morgan Avery",
+      holder: "MARIA COX WALKER",
       maskedNumber: "•••• 4829",
       expiry: "04/30",
       network: "Visa Signature",
@@ -307,7 +307,7 @@ export const initialDashboardState: DashboardState = {
       id: "card-reserve",
       name: "Prestige Reserve Debit",
       type: "Reserve Debit",
-      holder: "Morgan Avery",
+      holder: "MARIA COX WALKER",
       maskedNumber: "•••• 1093",
       expiry: "11/29",
       network: "Mastercard World",
@@ -344,7 +344,7 @@ export const initialDashboardState: DashboardState = {
   billers: [
     {
       id: "biller-utilities",
-      name: "Atlantic Utilities",
+      name: "Thames Utilities",
       category: "Utilities",
       reference: "Acct • 4021",
     },
@@ -356,7 +356,7 @@ export const initialDashboardState: DashboardState = {
     },
     {
       id: "biller-internet",
-      name: "Harbor Fiber",
+      name: "Harbour Fibre",
       category: "Internet",
       reference: "Service • 7740",
     },
@@ -391,30 +391,30 @@ export const initialDashboardState: DashboardState = {
     },
     {
       id: "recipient-bank-1",
-      name: "Hudson Supply Co.",
+      name: "Kensington Property Services",
       type: "Bank",
-      destinationLabel: "•••• 2109",
-      bankName: "JPMorgan Chase Bank",
-      routingNumber: "021000021",
-      accountNumber: "4552102109",
+      destinationLabel: "•••• 1021",
+      bankName: "Barclays Bank",
+      routingNumber: "203012",
+      accountNumber: "45521021",
     },
     {
       id: "recipient-bank-2",
-      name: "Lakeside Mortgage",
+      name: "London Mortgage Services",
       type: "Bank",
-      destinationLabel: "•••• 9044",
-      bankName: "Bank of America",
-      routingNumber: "026009593",
-      accountNumber: "7823499044",
+      destinationLabel: "•••• 4990",
+      bankName: "HSBC UK Bank",
+      routingNumber: "401276",
+      accountNumber: "78234990",
     },
     {
       id: "recipient-bank-3",
-      name: "North Harbor Logistics",
+      name: "Manchester Logistics Ltd",
       type: "Bank",
-      destinationLabel: "•••• 7714",
-      bankName: "Wells Fargo Bank",
-      routingNumber: "121000248",
-      accountNumber: "6345507714",
+      destinationLabel: "•••• 5077",
+      bankName: "Lloyds Bank",
+      routingNumber: "309674",
+      accountNumber: "63455077",
     },
   ],
   notifications,
@@ -425,21 +425,21 @@ export const initialDashboardState: DashboardState = {
       {
         id: "device-1",
         name: "MacBook Pro - Safari",
-        location: "New Haven, CT",
+        location: "London, UK",
         lastActive: "Active now",
         status: "Current Session",
       },
       {
         id: "device-2",
         name: "iPhone 15 - Prestige App",
-        location: "New Haven, CT",
+        location: "London, UK",
         lastActive: "Today, 8:42 AM",
         status: "Trusted Device",
       },
       {
         id: "device-3",
         name: "iPad Air - Web Access",
-        location: "Boston, MA",
+        location: "Manchester, UK",
         lastActive: "Apr 18, 4:12 PM",
         status: "Trusted Device",
       },
@@ -479,11 +479,11 @@ export const initialDashboardState: DashboardState = {
   ],
   settings: {
     profile: {
-      fullName: "Morgan Avery",
-      email: "morgan.avery@prestigetrustbank.com",
-      phone: "+1 (203) 555-0186",
-      city: "New Haven",
-      country: "United States",
+      fullName: "MARIA COX WALKER",
+      email: "maria.cox.walker@prestigetrustbank.com",
+      phone: "+44 20 7946 0186",
+      city: "London",
+      country: "United Kingdom",
       occupation: "Managing Partner",
       relationshipManager: "Natalie Bennett",
     },
@@ -495,7 +495,7 @@ export const initialDashboardState: DashboardState = {
     },
     appearance: {
       theme: "Classic Light",
-      language: "English (US)",
+      language: "English (UK)",
     },
   },
 };

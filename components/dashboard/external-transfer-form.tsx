@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 
-import { formatCurrency, usBankOptions } from "@/lib/dashboard-data";
+import { formatCurrency, ukBankOptions } from "@/lib/dashboard-data";
 import type {
   AccountId,
   TransferRecipient,
@@ -29,10 +29,10 @@ const CUSTOM_BANK_ENTRY = "__custom-bank__";
 
 function getBankSelectValue(bankName?: string) {
   if (!bankName) {
-    return usBankOptions[0] ?? CUSTOM_BANK_ENTRY;
+    return ukBankOptions[0] ?? CUSTOM_BANK_ENTRY;
   }
 
-  return usBankOptions.includes(bankName) ? bankName : CUSTOM_BANK_ENTRY;
+  return ukBankOptions.includes(bankName) ? bankName : CUSTOM_BANK_ENTRY;
 }
 
 function userDefaults(recipient?: TransferRecipient) {
@@ -49,7 +49,7 @@ function bankDefaults(recipient?: TransferRecipient) {
     recipientName: recipient?.name ?? "",
     bankName: getBankSelectValue(recipient?.bankName),
     customBankName:
-      recipient?.bankName && !usBankOptions.includes(recipient.bankName)
+      recipient?.bankName && !ukBankOptions.includes(recipient.bankName)
         ? recipient.bankName
         : "",
     routingNumber: recipient?.routingNumber ?? "",
@@ -409,7 +409,7 @@ export function ExternalTransferForm() {
                   }
                   className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
                 >
-                  {usBankOptions.map((bank) => (
+                  {ukBankOptions.map((bank) => (
                     <option key={bank} value={bank}>
                       {bank}
                     </option>
@@ -420,22 +420,22 @@ export function ExternalTransferForm() {
 
               <label className="space-y-2.5">
                 <span className="block text-sm font-medium text-[var(--color-slate-950)]">
-                  Routing number
+                  Sort code
                 </span>
                 <input
                   type="text"
                   inputMode="numeric"
                   pattern="[0-9]*"
-                  maxLength={9}
+                  maxLength={6}
                   value={form.routingNumber}
                   onChange={(event) =>
                     setForm((current) => ({
                       ...current,
                       recipientId: MANUAL_ENTRY,
-                      routingNumber: event.target.value.replace(/\D/g, "").slice(0, 9),
+                      routingNumber: event.target.value.replace(/\D/g, "").slice(0, 6),
                     }))
                   }
-                  placeholder="9-digit routing number"
+                  placeholder="6-digit sort code"
                   className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
                 />
               </label>
@@ -543,7 +543,7 @@ export function ExternalTransferForm() {
               <p className="mt-1">Send to Bank</p>
               <p>{resolvedBankName || "Select or enter bank name"}</p>
               <p>
-                {form.routingNumber || selectedRecipient?.routingNumber || "Enter routing number"}
+                {form.routingNumber || selectedRecipient?.routingNumber || "Enter sort code"}
               </p>
               <p>
                 {form.accountNumber || selectedRecipient?.destinationLabel || "Enter account number"}

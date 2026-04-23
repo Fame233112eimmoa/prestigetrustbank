@@ -121,7 +121,7 @@ export function PaymentsPage() {
                           {recipient.name}
                         </p>
                         <p className="mt-1 text-sm text-[var(--color-slate-700)]">
-                          {recipient.bankName} • Routing {recipient.routingNumber}
+                          {recipient.bankName} • Sort code {recipient.routingNumber}
                         </p>
                         <p className="mt-1 text-sm text-[var(--color-slate-700)]">
                           Account {recipient.destinationLabel}

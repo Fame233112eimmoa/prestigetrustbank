@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { dashboardNavItems } from "@/lib/dashboard-data";
+import { dashboardNavItems, formatCurrency } from "@/lib/dashboard-data";
 
 import { useDashboard } from "@/components/dashboard/dashboard-provider";
 import {
@@ -62,6 +62,9 @@ export function DashboardSidebar({
 
   const mainNavItems = dashboardNavItems.filter((item) => item.icon !== "logout");
   const logoutItem = dashboardNavItems.find((item) => item.icon === "logout");
+  const profileNameParts = state.user.fullName.trim().split(/\s+/);
+  const profileLastName = profileNameParts[profileNameParts.length - 1] ?? "";
+  const profileInitials = `${state.user.firstName.slice(0, 1)}${profileLastName.slice(0, 1)}`;
 
   const sidebarContent = (
     <div className="flex h-full min-h-0 flex-col">
@@ -132,10 +135,7 @@ export function DashboardSidebar({
             <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-5">
               <p className="text-sm text-slate-300">Total Balance</p>
               <p className="mt-3 text-3xl font-semibold text-white">
-                ${totalPortfolioBalance.toLocaleString("en-US", {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}
+                {formatCurrency(totalPortfolioBalance)}
               </p>
               <div className="mt-4 grid gap-3">
                 <div className="rounded-[1.25rem] border border-white/10 bg-white/6 px-4 py-3">
@@ -143,10 +143,7 @@ export function DashboardSidebar({
                     Checking
                   </p>
                   <p className="mt-1 text-sm font-semibold text-white">
-                    ${accounts.checking.availableBalance.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
+                    {formatCurrency(accounts.checking.availableBalance)}
                   </p>
                 </div>
                 <div className="rounded-[1.25rem] border border-white/10 bg-white/6 px-4 py-3">
@@ -154,10 +151,7 @@ export function DashboardSidebar({
                     Savings
                   </p>
                   <p className="mt-1 text-sm font-semibold text-white">
-                    ${accounts.savings.availableBalance.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
+                    {formatCurrency(accounts.savings.availableBalance)}
                   </p>
                 </div>
               </div>
@@ -167,8 +161,7 @@ export function DashboardSidebar({
               <p className="text-sm text-slate-300">Profile</p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-sm font-semibold text-[var(--color-navy-950)]">
-                  {state.user.firstName.slice(0, 1)}
-                  {state.user.fullName.split(" ")[1]?.slice(0, 1) ?? ""}
+                  {profileInitials}
                 </div>
                 <div>
                   <p className="font-semibold text-white">{state.user.fullName}</p>

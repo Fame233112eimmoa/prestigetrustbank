@@ -149,7 +149,7 @@ export const footerGroups = [
 export const contactDetails = [
   {
     label: "Client support",
-    value: "+1 (800) 555-0148",
+    value: "+44 20 7946 0148",
     icon: PhoneIcon,
   },
   {
@@ -159,12 +159,12 @@ export const contactDetails = [
   },
   {
     label: "Head office",
-    value: "880 Harbor Avenue, New Haven, CT 06510",
+    value: "25 King William Street, London EC4R 9AT",
     icon: MapPinIcon,
   },
   {
     label: "Service hours",
-    value: "Mon-Fri, 8:00 AM-6:00 PM ET",
+    value: "Mon-Fri, 8:00 AM-6:00 PM GMT",
     icon: ClockIcon,
   },
 ];

@@ -139,9 +139,9 @@ export type NotificationSettings = {
 export type AppearanceTheme = "Classic Light" | "Midnight";
 
 export type LanguagePreference =
-  | "English (US)"
+  | "English (UK)"
   | "French (FR)"
-  | "Spanish (US)";
+  | "Spanish (ES)";
 
 export type AppearanceSettings = {
   theme: AppearanceTheme;

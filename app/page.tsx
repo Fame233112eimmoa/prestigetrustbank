@@ -593,7 +593,7 @@ export default function HomePage() {
                         <p className="text-xs uppercase tracking-[0.18em] text-slate-300">
                           Available Balance
                         </p>
-                        <p className="mt-2 text-2xl font-semibold">$18,240.90</p>
+                        <p className="mt-2 text-2xl font-semibold">£18,240.90</p>
                       </div>
                       <div className="mt-3 space-y-3">
                         <div className="rounded-[1.2rem] border border-white/10 bg-white/6 px-3 py-3">
@@ -627,7 +627,7 @@ export default function HomePage() {
                             Checking
                           </p>
                           <p className="mt-2 text-xl font-semibold text-white">
-                            $18,240.90
+                            £18,240.90
                           </p>
                         </div>
                         <div className="rounded-[1.4rem] border border-white/10 bg-white/6 px-4 py-4">
@@ -635,7 +635,7 @@ export default function HomePage() {
                             Savings
                           </p>
                           <p className="mt-2 text-xl font-semibold text-white">
-                            $40,087.99
+                            £40,087.99
                           </p>
                         </div>
                       </div>
@@ -739,7 +739,7 @@ export default function HomePage() {
                 {[
                   {
                     label: "Client support",
-                    value: "+1 (800) 555-0148",
+                    value: "+44 20 7946 0148",
                     icon: PhoneIcon,
                   },
                   {
@@ -749,12 +749,12 @@ export default function HomePage() {
                   },
                   {
                     label: "Head office",
-                    value: "880 Harbor Avenue, New Haven, CT 06510",
+                    value: "25 King William Street, London EC4R 9AT",
                     icon: MapPinIcon,
                   },
                   {
                     label: "Service hours",
-                    value: "Mon-Fri, 8:00 AM-6:00 PM ET",
+                    value: "Mon-Fri, 8:00 AM-6:00 PM GMT",
                     icon: ClockIcon,
                   },
                 ].map((item) => {

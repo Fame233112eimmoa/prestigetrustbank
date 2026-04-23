@@ -18,9 +18,9 @@ type FeedbackState = {
 
 const themeOptions: AppearanceTheme[] = ["Classic Light", "Midnight"];
 const languageOptions: LanguagePreference[] = [
-  "English (US)",
+  "English (UK)",
   "French (FR)",
-  "Spanish (US)",
+  "Spanish (ES)",
 ];
 
 export function SettingsForm() {
