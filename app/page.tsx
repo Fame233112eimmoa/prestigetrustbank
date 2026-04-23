@@ -20,7 +20,7 @@ import {
 
 const navigation = [
   { label: "Home", href: "#top" },
-  { label: "Support", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const services = [
@@ -147,7 +147,7 @@ export default function HomePage() {
 
             <Link
               href="/login"
-              className="shrink-0 rounded-full bg-[var(--color-gold)] px-5 py-3 text-sm font-bold text-[var(--color-navy-950)] shadow-[0_14px_34px_rgba(200,164,93,0.26)] hover:-translate-y-0.5 hover:bg-[var(--color-gold-soft)] sm:px-7"
+              className="shrink-0 rounded-full bg-[var(--color-gold)] px-7 py-3.5 text-base font-extrabold uppercase tracking-[0.08em] text-[var(--color-navy-950)] shadow-[0_18px_42px_rgba(200,164,93,0.36)] ring-1 ring-[rgba(200,164,93,0.35)] hover:-translate-y-0.5 hover:bg-[var(--color-gold-soft)] sm:px-9 sm:py-4"
             >
               Login
             </Link>
