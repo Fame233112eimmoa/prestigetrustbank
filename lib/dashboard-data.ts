@@ -239,11 +239,11 @@ export const initialDashboardState: DashboardState = {
   user: {
     fullName: "MARIA COX WALKER",
     firstName: "MARIA COX WALKER",
-    email: "maria.cox.walker@prestigetrustbank.com",
+    email: "maria.cox.walker@Gmail.com",
     phone: "+44 20 7946 0186",
     relationshipManager: "Natalie Bennett",
     branch: "London Private Banking Centre",
-    memberSince: "2018",
+    memberSince: "2014",
     clientId: "PTB-10248",
   },
   accounts: {
