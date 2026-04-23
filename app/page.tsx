@@ -11,7 +11,9 @@ import {
   ClockIcon,
   GlobeIcon,
   LoanIcon,
+  MailIcon,
   MapPinIcon,
+  PhoneIcon,
   ReceiptIcon,
   ShieldIcon,
   SparkleIcon,
@@ -20,7 +22,8 @@ import {
 
 const navigation = [
   { label: "Home", href: "#top" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "#contact-support" },
+  { label: "Support", href: "#contact-support" },
 ];
 
 const services = [
@@ -115,12 +118,12 @@ export default function HomePage() {
     >
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[var(--color-ivory)]/92 backdrop-blur-xl">
         <div className="container-shell py-3.5 sm:py-4">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-3 sm:gap-4">
             <Link href="/" className="flex min-w-0 items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-navy-950)] text-white shadow-lg shadow-slate-950/15">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy-950)] text-white shadow-lg shadow-slate-950/15">
                 <ShieldIcon className="h-5 w-5" />
               </div>
-              <div>
+              <div className="hidden sm:block">
                 <p className="text-base font-semibold uppercase tracking-[0.1em] text-[var(--color-navy-950)]">
                   Prestige Trust
                 </p>
@@ -145,12 +148,20 @@ export default function HomePage() {
               ))}
             </nav>
 
-            <Link
-              href="/login"
-              className="shrink-0 rounded-full bg-[var(--color-gold)] px-7 py-3.5 text-base font-extrabold uppercase tracking-[0.08em] text-[var(--color-navy-950)] shadow-[0_18px_42px_rgba(200,164,93,0.36)] ring-1 ring-[rgba(200,164,93,0.35)] hover:-translate-y-0.5 hover:bg-[var(--color-gold-soft)] sm:px-9 sm:py-4"
-            >
-              Login
-            </Link>
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+              <Link
+                href="/open-account"
+                className="rounded-full border border-[var(--color-line)] bg-white px-4 py-3 text-xs font-bold text-[var(--color-navy-950)] shadow-sm hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] sm:px-5 sm:py-3.5 sm:text-sm"
+              >
+                Create Account
+              </Link>
+              <Link
+                href="/login"
+                className="rounded-full bg-[var(--color-gold)] px-5 py-3 text-sm font-extrabold uppercase tracking-[0.08em] text-[var(--color-navy-950)] shadow-[0_18px_42px_rgba(200,164,93,0.36)] ring-1 ring-[rgba(200,164,93,0.35)] hover:-translate-y-0.5 hover:bg-[var(--color-gold-soft)] sm:px-9 sm:py-4 sm:text-base"
+              >
+                Login
+              </Link>
+            </div>
           </div>
 
           <nav
@@ -670,7 +681,7 @@ export default function HomePage() {
                   </h2>
                 </div>
                 <Link
-                  href="/contact"
+                  href="#contact-support"
                   className="inline-flex items-center justify-center rounded-full border border-white/14 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/6"
                 >
                   Contact Support
@@ -689,6 +700,83 @@ export default function HomePage() {
                     <p className="mt-3 text-sm leading-7 text-slate-300">{item.label}</p>
                   </article>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact-support" className="section-spacing bg-white">
+          <div className="container-shell">
+            <div className="grid gap-10 rounded-[2.5rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 shadow-[0_24px_60px_rgba(8,20,38,0.08)] sm:p-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
+                  Contact and Support
+                </p>
+                <h2 className="mt-4 font-display text-4xl font-semibold leading-tight text-[var(--color-navy-950)] sm:text-5xl">
+                  Banking support without leaving the homepage.
+                </h2>
+                <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--color-slate-700)]">
+                  Reach Prestige Trust Bank for account help, card support,
+                  digital banking questions, and branch assistance.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <Link
+                    href="/login"
+                    className="inline-flex items-center justify-center rounded-full bg-[var(--color-navy-950)] px-6 py-3.5 text-sm font-semibold text-white hover:bg-[var(--color-navy-900)]"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/open-account"
+                    className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] px-6 py-3.5 text-sm font-semibold text-[var(--color-navy-950)] hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
+                  >
+                    Create Account
+                  </Link>
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  {
+                    label: "Client support",
+                    value: "+1 (800) 555-0148",
+                    icon: PhoneIcon,
+                  },
+                  {
+                    label: "Email support",
+                    value: "clientservices@prestigetrustbank.com",
+                    icon: MailIcon,
+                  },
+                  {
+                    label: "Head office",
+                    value: "880 Harbor Avenue, New Haven, CT 06510",
+                    icon: MapPinIcon,
+                  },
+                  {
+                    label: "Service hours",
+                    value: "Mon-Fri, 8:00 AM-6:00 PM ET",
+                    icon: ClockIcon,
+                  },
+                ].map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <article
+                      key={item.label}
+                      className="rounded-[1.7rem] bg-[var(--color-surface-soft)] px-5 py-5"
+                    >
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[var(--color-gold)] shadow-sm">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
+                        {item.label}
+                      </p>
+                      <p className="mt-3 text-base font-semibold leading-7 text-[var(--color-navy-950)]">
+                        {item.value}
+                      </p>
+                    </article>
+                  );
+                })}
               </div>
             </div>
           </div>
