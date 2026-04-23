@@ -35,13 +35,8 @@ export type Service = {
 
 export const navItems: NavItem[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/personal-banking", label: "Personal Banking" },
-  { href: "/business", label: "Business" },
-  { href: "/loans", label: "Loans" },
-  { href: "/cards", label: "Cards" },
-  { href: "/digital-banking", label: "Digital Banking" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#contact-support", label: "Contact" },
+  { href: "/#contact-support", label: "Support" },
 ];
 
 export const featuredServices: Service[] = [
