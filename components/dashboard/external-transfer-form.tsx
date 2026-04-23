@@ -351,122 +351,128 @@ export function ExternalTransferForm() {
   return (
     <>
       {pendingReview ? (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/72 p-4 backdrop-blur-md sm:p-6">
+        <div className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/72 p-3 backdrop-blur-md sm:p-6">
           <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="transfer-review-title"
-            className="relative w-full max-w-[42rem] rounded-[2rem] border border-[var(--color-line)] bg-white shadow-[0_28px_80px_rgba(8,20,38,0.35)]"
+            className="flex min-h-full items-center justify-center"
           >
-            <button
-              type="button"
-              onClick={() => setPendingReview(null)}
-              className="absolute right-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/80 text-[var(--color-navy-950)]"
-              aria-label="Close transfer review"
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="transfer-review-title"
+              className="relative my-3 flex w-full max-w-[42rem] max-h-[calc(100svh-1.5rem)] flex-col overflow-hidden rounded-[1.6rem] border border-[var(--color-line)] bg-white shadow-[0_28px_80px_rgba(8,20,38,0.35)] sm:my-0 sm:max-h-[calc(100svh-3rem)] sm:rounded-[2rem]"
             >
-              <XIcon className="h-4 w-4" />
-            </button>
+              <button
+                type="button"
+                onClick={() => setPendingReview(null)}
+                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/90 text-[var(--color-navy-950)] sm:right-5 sm:top-5 sm:h-11 sm:w-11"
+                aria-label="Close transfer review"
+              >
+                <XIcon className="h-4 w-4" />
+              </button>
 
-            <div className="p-6 sm:p-8">
-              <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[rgba(200,164,93,0.18)] text-[var(--color-gold)] ring-1 ring-[rgba(200,164,93,0.28)]">
-                  {pendingReview.input.recipientType === "User" ? (
-                    <UserIcon className="h-8 w-8" />
-                  ) : (
-                    <BankIcon className="h-8 w-8" />
-                  )}
+              <div className="overflow-y-auto px-4 pb-4 pt-4 sm:px-8 sm:pb-6 sm:pt-8">
+                <div className="flex flex-col items-start gap-4 pr-12 sm:flex-row sm:items-center sm:gap-5 sm:pr-14">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[rgba(200,164,93,0.18)] text-[var(--color-gold)] ring-1 ring-[rgba(200,164,93,0.28)] sm:h-16 sm:w-16">
+                    {pendingReview.input.recipientType === "User" ? (
+                      <UserIcon className="h-7 w-7 sm:h-8 sm:w-8" />
+                    ) : (
+                      <BankIcon className="h-7 w-7 sm:h-8 sm:w-8" />
+                    )}
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)] sm:text-sm sm:tracking-[0.22em]">
+                      Review Payment
+                    </p>
+                    <h3
+                      id="transfer-review-title"
+                      className="mt-2 text-[1.45rem] font-semibold leading-tight text-[var(--color-navy-950)] sm:mt-3 sm:text-[2rem]"
+                    >
+                      Confirm transfer details
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-slate-700)] sm:mt-3 sm:leading-7">
+                      Check the payment details below before you continue.
+                    </p>
+                  </div>
                 </div>
 
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-                    Review Payment
+                <div className="mt-5 grid gap-3 sm:mt-8 sm:gap-4 sm:grid-cols-2">
+                  <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.5rem] sm:px-5 sm:py-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-slate-500)] sm:text-xs sm:tracking-[0.18em]">
+                      Amount
+                    </p>
+                    <p className="mt-2 text-xl font-semibold text-[var(--color-navy-950)] sm:mt-3 sm:text-2xl">
+                      {pendingReview.amountLabel}
+                    </p>
+                  </div>
+                  <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.5rem] sm:px-5 sm:py-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-slate-500)] sm:text-xs sm:tracking-[0.18em]">
+                      Type
+                    </p>
+                    <p className="mt-2 font-semibold text-[var(--color-navy-950)] sm:mt-3">
+                      {pendingReview.recipientTypeLabel}
+                    </p>
+                  </div>
+                  <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.5rem] sm:px-5 sm:py-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-slate-500)] sm:text-xs sm:tracking-[0.18em]">
+                      From
+                    </p>
+                    <p className="mt-2 font-semibold text-[var(--color-navy-950)] sm:mt-3">
+                      {pendingReview.fromAccountLabel}
+                    </p>
+                  </div>
+                  <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.5rem] sm:px-5 sm:py-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-slate-500)] sm:text-xs sm:tracking-[0.18em]">
+                      Recipient
+                    </p>
+                    <p className="mt-2 font-semibold text-[var(--color-navy-950)] sm:mt-3">
+                      {pendingReview.recipientLabel}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-3 rounded-[1.3rem] border border-[var(--color-line)] bg-white px-4 py-4 sm:mt-4 sm:rounded-[1.6rem] sm:px-5 sm:py-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-slate-500)] sm:text-xs sm:tracking-[0.18em]">
+                    Destination
                   </p>
-                  <h3
-                    id="transfer-review-title"
-                    className="mt-3 text-[1.8rem] font-semibold leading-tight text-[var(--color-navy-950)] sm:text-[2rem]"
+                  <div className="mt-2 space-y-1.5 text-sm leading-6 text-[var(--color-slate-700)] sm:mt-3 sm:space-y-2 sm:leading-7">
+                    {pendingReview.destinationLines.map((line, index) => (
+                      <p key={`${line}-${index}`}>{line}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-3 rounded-[1.3rem] border border-[var(--color-line)] bg-white px-4 py-4 sm:mt-4 sm:rounded-[1.6rem] sm:px-5 sm:py-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-slate-500)] sm:text-xs sm:tracking-[0.18em]">
+                    Memo
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-slate-700)] sm:mt-3 sm:leading-7">
+                    {pendingReview.memoLabel}
+                  </p>
+                </div>
+
+                <div className="mt-4 rounded-[1.3rem] bg-[var(--color-surface-soft)] px-4 py-3 text-sm leading-6 text-[var(--color-slate-700)] sm:mt-6 sm:rounded-[1.6rem] sm:px-5 sm:py-4 sm:leading-7">
+                  Confirming below will send this payment into a short security review.
+                </div>
+              </div>
+
+              <div className="border-t border-[var(--color-line)] bg-white px-4 py-4 sm:px-8 sm:py-5">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <button
+                    type="button"
+                    onClick={() => setPendingReview(null)}
+                    className="inline-flex w-full items-center justify-center rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold text-[var(--color-navy-950)] sm:w-auto"
                   >
-                    Confirm transfer details
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--color-slate-700)]">
-                    Check the payment details below before you continue.
-                  </p>
+                    Edit Details
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleConfirmTransfer}
+                    className="inline-flex w-full items-center justify-center rounded-full bg-[var(--color-navy-950)] px-5 py-3 text-sm font-semibold text-white sm:w-auto"
+                  >
+                    Confirm Transfer
+                  </button>
                 </div>
-              </div>
-
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-[1.5rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-5 py-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
-                    Amount
-                  </p>
-                  <p className="mt-3 text-2xl font-semibold text-[var(--color-navy-950)]">
-                    {pendingReview.amountLabel}
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-5 py-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
-                    Type
-                  </p>
-                  <p className="mt-3 font-semibold text-[var(--color-navy-950)]">
-                    {pendingReview.recipientTypeLabel}
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-5 py-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
-                    From
-                  </p>
-                  <p className="mt-3 font-semibold text-[var(--color-navy-950)]">
-                    {pendingReview.fromAccountLabel}
-                  </p>
-                </div>
-                <div className="rounded-[1.5rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-5 py-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
-                    Recipient
-                  </p>
-                  <p className="mt-3 font-semibold text-[var(--color-navy-950)]">
-                    {pendingReview.recipientLabel}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4 rounded-[1.6rem] border border-[var(--color-line)] bg-white px-5 py-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
-                  Destination
-                </p>
-                <div className="mt-3 space-y-2 text-sm leading-7 text-[var(--color-slate-700)]">
-                  {pendingReview.destinationLines.map((line, index) => (
-                    <p key={`${line}-${index}`}>{line}</p>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-4 rounded-[1.6rem] border border-[var(--color-line)] bg-white px-5 py-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
-                  Memo
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-slate-700)]">
-                  {pendingReview.memoLabel}
-                </p>
-              </div>
-
-              <div className="mt-6 rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-4 text-sm leading-7 text-[var(--color-slate-700)]">
-                Confirming below will send this payment into a short security review.
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => setPendingReview(null)}
-                  className="inline-flex items-center justify-center rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold text-[var(--color-navy-950)]"
-                >
-                  Edit Details
-                </button>
-                <button
-                  type="button"
-                  onClick={handleConfirmTransfer}
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-navy-950)] px-5 py-3 text-sm font-semibold text-white"
-                >
-                  Confirm Transfer
-                </button>
               </div>
             </div>
           </div>
@@ -474,113 +480,123 @@ export function ExternalTransferForm() {
       ) : null}
 
       {processingTransfer ? (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/72 p-4 backdrop-blur-md sm:p-6">
+        <div className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/72 p-3 backdrop-blur-md sm:p-6">
           <div
-            role="status"
-            aria-live="polite"
-            className="w-full max-w-[30rem] rounded-[2rem] border border-[var(--color-line)] bg-white p-8 text-center shadow-[0_28px_80px_rgba(8,20,38,0.35)]"
+            className="flex min-h-full items-center justify-center"
           >
-            <div className="mx-auto flex h-18 w-18 items-center justify-center rounded-full bg-[var(--color-surface-soft)]">
-              <div className="h-11 w-11 animate-spin rounded-full border-[3px] border-[var(--color-line)] border-t-[var(--color-gold)]" />
-            </div>
+            <div
+              role="status"
+              aria-live="polite"
+              className="w-full max-w-[30rem] rounded-[1.6rem] border border-[var(--color-line)] bg-white p-5 text-center shadow-[0_28px_80px_rgba(8,20,38,0.35)] sm:rounded-[2rem] sm:p-8"
+            >
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[var(--color-surface-soft)] sm:h-[4.5rem] sm:w-[4.5rem]">
+                <div className="h-10 w-10 animate-spin rounded-full border-[3px] border-[var(--color-line)] border-t-[var(--color-gold)] sm:h-11 sm:w-11" />
+              </div>
 
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-              Processing Transfer
-            </p>
-            <h3 className="mt-3 text-[1.8rem] font-semibold leading-tight text-[var(--color-navy-950)]">
-              {processingTransfer.amountLabel} to {processingTransfer.recipientLabel}
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[var(--color-slate-700)]">
-              Please wait while we review the payment details and run final
-              security checks.
-            </p>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)] sm:mt-6 sm:text-sm sm:tracking-[0.22em]">
+                Processing Transfer
+              </p>
+              <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-[var(--color-navy-950)] sm:mt-3 sm:text-[1.8rem]">
+                {processingTransfer.amountLabel} to {processingTransfer.recipientLabel}
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-slate-700)] sm:mt-4 sm:leading-7">
+                Please wait while we review the payment details and run final
+                security checks.
+              </p>
+            </div>
           </div>
         </div>
       ) : null}
 
       {feedback ? (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950/72 p-4 backdrop-blur-md sm:p-6">
+        <div className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/72 p-3 backdrop-blur-md sm:p-6">
           <div
-            role="alertdialog"
-            aria-modal="true"
-            aria-live="assertive"
-            className={`relative w-full max-w-[38rem] rounded-[2rem] border shadow-[0_28px_80px_rgba(8,20,38,0.35)] ${
-              feedback.tone === "success"
-                ? "border-emerald-200 bg-white text-emerald-700"
-                : "border-rose-200 bg-white text-rose-700"
-            }`}
+            className="flex min-h-full items-center justify-center"
           >
-            <button
-              type="button"
-              onClick={() => setFeedback(null)}
-              className="absolute right-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/80 text-[var(--color-navy-950)]"
-              aria-label="Dismiss transfer alert"
+            <div
+              role="alertdialog"
+              aria-modal="true"
+              aria-live="assertive"
+              className={`relative my-3 flex w-full max-w-[38rem] max-h-[calc(100svh-1.5rem)] flex-col overflow-hidden rounded-[1.6rem] border shadow-[0_28px_80px_rgba(8,20,38,0.35)] sm:my-0 sm:max-h-[calc(100svh-3rem)] sm:rounded-[2rem] ${
+                feedback.tone === "success"
+                  ? "border-emerald-200 bg-white text-emerald-700"
+                  : "border-rose-200 bg-white text-rose-700"
+              }`}
             >
-              <XIcon className="h-4 w-4" />
-            </button>
+              <button
+                type="button"
+                onClick={() => setFeedback(null)}
+                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/90 text-[var(--color-navy-950)] sm:right-5 sm:top-5 sm:h-11 sm:w-11"
+                aria-label="Dismiss transfer alert"
+              >
+                <XIcon className="h-4 w-4" />
+              </button>
 
-            <div className="p-6 sm:p-8">
-              <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-rose-50 text-rose-600 ring-1 ring-rose-100">
-                  <AlertIcon className="h-8 w-8" />
-                </div>
+              <div className="overflow-y-auto px-4 pb-4 pt-4 sm:px-8 sm:pb-6 sm:pt-8">
+                <div className="flex flex-col items-start gap-4 pr-12 sm:flex-row sm:items-center sm:gap-5 sm:pr-14">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-rose-50 text-rose-600 ring-1 ring-rose-100 sm:h-16 sm:w-16">
+                    <AlertIcon className="h-7 w-7 sm:h-8 sm:w-8" />
+                  </div>
 
-                <div className="min-w-0">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-rose-600">
-                    Transfer Declined
-                  </p>
-                  <h3 className="mt-3 text-[1.8rem] font-semibold leading-tight text-[var(--color-navy-950)] sm:text-[2rem]">
-                    Transfer Review Required
-                  </h3>
-                </div>
-              </div>
-
-              <p className="mt-6 text-base leading-8 text-[var(--color-slate-950)]">
-                {feedback.message}
-              </p>
-
-              <div className="mt-7 grid gap-3 sm:grid-cols-3">
-                <div className="rounded-[1.35rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4">
-                  <div className="flex items-center gap-3">
-                    <MapPinIcon className="h-5 w-5 text-rose-600" />
-                    <span className="text-sm font-semibold text-[var(--color-navy-950)]">
-                      Restricted Area
-                    </span>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-600 sm:text-sm sm:tracking-[0.22em]">
+                      Transfer Declined
+                    </p>
+                    <h3 className="mt-2 text-[1.45rem] font-semibold leading-tight text-[var(--color-navy-950)] sm:mt-3 sm:text-[2rem]">
+                      Transfer Review Required
+                    </h3>
                   </div>
                 </div>
-                <div className="rounded-[1.35rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4">
-                  <div className="flex items-center gap-3">
-                    <ShieldIcon className="h-5 w-5 text-rose-600" />
-                    <span className="text-sm font-semibold text-[var(--color-navy-950)]">
-                      Branch Review
-                    </span>
+
+                <p className="mt-4 text-sm leading-6 text-[var(--color-slate-950)] sm:mt-6 sm:text-base sm:leading-8">
+                  {feedback.message}
+                </p>
+
+                <div className="mt-5 grid gap-3 sm:mt-7 sm:grid-cols-3">
+                  <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.35rem]">
+                    <div className="flex items-center gap-3">
+                      <MapPinIcon className="h-5 w-5 text-rose-600" />
+                      <span className="text-sm font-semibold text-[var(--color-navy-950)]">
+                        Restricted Area
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="rounded-[1.35rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4">
-                  <div className="flex items-center gap-3">
-                    <ClockIcon className="h-5 w-5 text-rose-600" />
-                    <div>
-                      <p className="text-sm font-semibold text-[var(--color-navy-950)]">
-                        Auto Closes
-                      </p>
-                      <p className="mt-1 text-xs font-medium text-[var(--color-slate-700)]">
-                        {countdownSeconds}s remaining
-                      </p>
+                  <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.35rem]">
+                    <div className="flex items-center gap-3">
+                      <ShieldIcon className="h-5 w-5 text-rose-600" />
+                      <span className="text-sm font-semibold text-[var(--color-navy-950)]">
+                        Branch Review
+                      </span>
+                    </div>
+                  </div>
+                  <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.35rem]">
+                    <div className="flex items-center gap-3">
+                      <ClockIcon className="h-5 w-5 text-rose-600" />
+                      <div>
+                        <p className="text-sm font-semibold text-[var(--color-navy-950)]">
+                          Auto Closes
+                        </p>
+                        <p className="mt-1 text-xs font-medium text-[var(--color-slate-700)]">
+                          {countdownSeconds}s remaining
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => setFeedback(null)}
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-navy-950)] px-5 py-3 text-sm font-semibold text-white"
-                >
-                  Dismiss
-                </button>
-                <div className="inline-flex items-center rounded-full border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-medium text-rose-700">
-                  This message closes automatically in {countdownSeconds} seconds.
+              <div className="border-t border-[var(--color-line)] bg-white px-4 py-4 sm:px-8 sm:py-5">
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                  <button
+                    type="button"
+                    onClick={() => setFeedback(null)}
+                    className="inline-flex w-full items-center justify-center rounded-full bg-[var(--color-navy-950)] px-5 py-3 text-sm font-semibold text-white sm:w-auto"
+                  >
+                    Dismiss
+                  </button>
+                  <div className="inline-flex w-full items-center justify-center rounded-full border border-rose-200 bg-rose-50 px-4 py-3 text-center text-sm font-medium text-rose-700 sm:w-auto">
+                    This message closes automatically in {countdownSeconds} seconds.
+                  </div>
                 </div>
               </div>
             </div>
