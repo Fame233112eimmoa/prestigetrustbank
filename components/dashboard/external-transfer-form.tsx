@@ -629,12 +629,8 @@ export function ExternalTransferForm() {
                 }
                 className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
               >
-                <option value="checking">
-                  Checking • {formatCurrency(accounts.checking.availableBalance)}
-                </option>
-                <option value="savings">
-                  Savings • {formatCurrency(accounts.savings.availableBalance)}
-                </option>
+                <option value="checking">Checking</option>
+                <option value="savings">Savings</option>
               </select>
             </label>
 

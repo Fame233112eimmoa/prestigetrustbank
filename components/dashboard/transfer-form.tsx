@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 
-import { formatCurrency } from "@/lib/dashboard-data";
 import type { AccountId } from "@/types/dashboard";
 
 import { PageSectionHeader } from "@/components/dashboard/page-section-header";
@@ -14,7 +13,7 @@ type FeedbackState = {
 };
 
 export function TransferForm() {
-  const { accounts, transferBetweenAccounts } = useDashboard();
+  const { transferBetweenAccounts } = useDashboard();
   const [form, setForm] = useState({
     fromAccountId: "checking" as AccountId,
     toAccountId: "savings" as AccountId,
@@ -89,12 +88,8 @@ export function TransferForm() {
               }}
               className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
             >
-              <option value="checking">
-                Checking • {formatCurrency(accounts.checking.availableBalance)}
-              </option>
-              <option value="savings">
-                Savings • {formatCurrency(accounts.savings.availableBalance)}
-              </option>
+              <option value="checking">Checking</option>
+              <option value="savings">Savings</option>
             </select>
           </label>
 
@@ -119,12 +114,8 @@ export function TransferForm() {
               }}
               className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
             >
-              <option value="checking">
-                Checking • {formatCurrency(accounts.checking.availableBalance)}
-              </option>
-              <option value="savings">
-                Savings • {formatCurrency(accounts.savings.availableBalance)}
-              </option>
+              <option value="checking">Checking</option>
+              <option value="savings">Savings</option>
             </select>
           </label>
         </div>
