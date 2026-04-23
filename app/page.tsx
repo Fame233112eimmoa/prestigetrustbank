@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { Footer } from "@/components/footer";
 import {
@@ -316,6 +317,69 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-spacing bg-[var(--color-navy-950)] text-white">
+          <div className="container-shell">
+            <div className="grid gap-10 overflow-hidden rounded-[2.75rem] border border-white/10 bg-[linear-gradient(145deg,#081426_0%,#10223f_58%,#17345e_100%)] p-6 shadow-[0_30px_90px_rgba(8,20,38,0.24)] sm:p-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center xl:p-10">
+              <div className="max-w-2xl">
+                <p className="inline-flex rounded-full border border-white/14 bg-white/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
+                  Premium Cards
+                </p>
+                <h2 className="mt-6 font-display text-4xl font-semibold leading-tight text-balance sm:text-5xl">
+                  Premium Cards built for secure, rewarding, global spending.
+                </h2>
+                <p className="mt-5 text-base leading-8 text-slate-300">
+                  Enjoy card security, meaningful rewards, everyday convenience,
+                  and global acceptance with a premium card experience designed
+                  for travel, business, and lifestyle purchases.
+                </p>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    "Advanced card security",
+                    "Rewards on eligible spending",
+                    "Convenient digital controls",
+                    "Global Visa acceptance",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 rounded-[1.35rem] border border-white/10 bg-white/6 px-4 py-3.5 text-sm font-medium text-slate-200"
+                    >
+                      <span className="rounded-full bg-white/10 p-1 text-[var(--color-gold)]">
+                        <CheckIcon className="h-4 w-4" />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/cards"
+                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-gold)] px-6 py-3.5 text-sm font-semibold text-[var(--color-navy-950)] hover:-translate-y-0.5 hover:bg-[var(--color-gold-soft)]"
+                >
+                  Explore Cards
+                  <ArrowRightIcon className="h-4 w-4" />
+                </Link>
+              </div>
+
+              <div className="relative">
+                <div className="absolute -left-6 top-10 h-28 w-28 rounded-full bg-[var(--color-gold)]/20 blur-3xl" />
+                <div className="absolute -right-8 bottom-8 h-36 w-36 rounded-full bg-white/12 blur-3xl" />
+
+                <div className="relative rounded-[2.25rem] border border-white/12 bg-white/8 p-3 shadow-[0_26px_70px_rgba(0,0,0,0.34)] backdrop-blur sm:p-4">
+                  <Image
+                    src="/images/prestige-premium-card.jpg"
+                    width={704}
+                    height={795}
+                    alt="Prestige Trust Bank premium Visa card"
+                    sizes="(max-width: 768px) 100vw, 48vw"
+                    className="h-auto w-full rounded-[1.8rem] object-contain shadow-[0_24px_60px_rgba(0,0,0,0.28)]"
+                  />
                 </div>
               </div>
             </div>
