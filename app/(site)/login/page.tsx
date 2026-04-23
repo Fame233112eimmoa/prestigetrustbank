@@ -5,6 +5,10 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition, type FormEvent } from "react";
 
 import { ShieldIcon } from "@/components/icons";
+import {
+  authSessionKeys,
+  isValidLoginCredentials,
+} from "@/lib/auth-credentials";
 
 type LoginValues = {
   customerId: string;
@@ -29,10 +33,12 @@ export default function LoginPage() {
       return;
     }
 
-    if (values.password.trim().length < 6) {
-      setError("Use at least 6 characters for your password.");
+    if (!isValidLoginCredentials(values.customerId, values.password)) {
+      setError("Wrong credentials. Check your customer ID and password.");
       return;
     }
+
+    window.sessionStorage.setItem(authSessionKeys.otpReady, "true");
 
     startTransition(() => {
       router.push("/otp");

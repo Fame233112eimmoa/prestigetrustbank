@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import type { FormEvent } from "react";
 
+import { authSessionKeys, isValidOtpCode } from "@/lib/auth-credentials";
+
 export function OtpForm() {
   const router = useRouter();
   const [code, setCode] = useState("");
@@ -16,11 +18,26 @@ export function OtpForm() {
     event.preventDefault();
     setMessage("");
 
+    if (!window.sessionStorage.getItem(authSessionKeys.otpReady)) {
+      setStatus("error");
+      setMessage("Sign in before entering your verification code.");
+      return;
+    }
+
     if (!/^\d{6}$/.test(code.trim())) {
       setStatus("error");
       setMessage("Enter the 6-digit verification code to continue.");
       return;
     }
+
+    if (!isValidOtpCode(code)) {
+      setStatus("error");
+      setMessage("Wrong verification code. Please try again.");
+      return;
+    }
+
+    window.sessionStorage.removeItem(authSessionKeys.otpReady);
+    window.sessionStorage.setItem(authSessionKeys.signedIn, "true");
 
     startTransition(() => {
       router.push("/dashboard");
