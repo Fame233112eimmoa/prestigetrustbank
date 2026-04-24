@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description:
     "Prestige Trust Bank offers personal banking, business banking, lending, cards, and digital banking services.",
   applicationName: "Prestige Trust Bank",
+  verification: {
+    google: "T6gWrAELIANj8Ex659twYFXEDbzxNoSQ24uhDz_RrQg",
+  },
   keywords: [
     "bank",
     "banking",
