@@ -49,11 +49,19 @@ export function HeroSection() {
               Prestige Trust Bank
             </p>
             <h1 className="mt-7 max-w-3xl font-display text-5xl font-semibold leading-tight text-balance sm:text-6xl xl:text-7xl">
-              Banking with clarity, confidence, and personal service.
+              Prestige Trust App – Digital Banking Platform
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Personal banking, business banking, lending, cards, and digital
-              banking from one trusted relationship.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+              Prestige Trust App is a modern digital banking platform that
+              allows users to manage accounts, send money, and access financial
+              services securely online. Our online banking app provides a
+              secure finance platform for individuals and businesses looking
+              for fast and reliable banking solutions.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
+              With Prestige Trust App, users can experience digital banking
+              with real-time transactions, account management, and secure
+              financial tools designed for convenience and safety.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">

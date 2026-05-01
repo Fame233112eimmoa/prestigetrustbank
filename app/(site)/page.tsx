@@ -8,9 +8,9 @@ import { TestimonialCard } from "@/components/testimonial-card";
 import { benefits, featuredServices, testimonials, trustStats } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Prestige Trust App | Digital Banking Platform",
   description:
-    "Personal banking, business banking, lending, cards, and digital banking from Prestige Trust Bank.",
+    "Prestige Trust App is a secure digital banking platform for managing accounts, transfers, and financial services online.",
 };
 
 export default function HomePage() {

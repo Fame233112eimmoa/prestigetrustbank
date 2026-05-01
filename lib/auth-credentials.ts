@@ -1,7 +1,7 @@
 export const authCredentials = {
   customerId: "PTB-10248",
   password: "Maria@2026",
-  otp: "482910",
+  otp: "932891",
 } as const;
 
 export const authSessionKeys = {

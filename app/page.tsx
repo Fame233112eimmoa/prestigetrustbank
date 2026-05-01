@@ -190,12 +190,19 @@ export default function HomePage() {
                   Prestige Trust Bank
                 </p>
                 <h1 className="mt-7 max-w-4xl font-display text-5xl font-semibold leading-tight text-balance sm:text-6xl xl:text-7xl">
-                  Premium banking for personal wealth, business growth, and
-                  everyday confidence.
+                  Prestige Trust App – Digital Banking Platform
                 </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                  Checking, savings, cards, lending, and digital banking backed
-                  by direct service and disciplined financial guidance.
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+                  Prestige Trust App is a modern digital banking platform that
+                  allows users to manage accounts, send money, and access
+                  financial services securely online. Our online banking app
+                  provides a secure finance platform for individuals and
+                  businesses looking for fast and reliable banking solutions.
+                </p>
+                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
+                  With Prestige Trust App, users can experience digital banking
+                  with real-time transactions, account management, and secure
+                  financial tools designed for convenience and safety.
                 </p>
 
                 <div className="mt-9 flex flex-col gap-4 sm:flex-row">

@@ -1,32 +1,13 @@
-import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://prestigetrustbank.com"),
-  title: {
-    default: "Prestige Trust Bank",
-    template: "%s | Prestige Trust Bank",
-  },
-  description:
-    "Prestige Trust Bank offers personal banking, business banking, lending, cards, and digital banking services.",
-  applicationName: "Prestige Trust Bank",
-  verification: {
-    google: "T6gWrAELIANj8Ex659twYFXEDbzxNoSQ24uhDz_RrQg",
-  },
-  keywords: [
-    "bank",
-    "banking",
-    "personal banking",
-    "business banking",
-    "digital banking",
-    "loan services",
-  ],
-  openGraph: {
-    title: "Prestige Trust Bank",
-    description:
-      "Personal banking, business banking, lending, cards, and digital banking from Prestige Trust Bank.",
-    siteName: "Prestige Trust Bank",
-    type: "website",
+export const metadata = {
+  title: "Prestige Trust App | Digital Banking Platform",
+  description: "Prestige Trust App is a secure digital banking platform for managing accounts, transfers, and financial services online.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" }
+    ],
   },
 };
 
