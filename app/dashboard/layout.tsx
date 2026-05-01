@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { DashboardAuthGuard } from "@/components/dashboard/dashboard-auth-guard";
 import { DashboardStateProvider } from "@/components/dashboard/dashboard-provider";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 
@@ -15,7 +16,9 @@ export default function DashboardLayout({
 }) {
   return (
     <DashboardStateProvider>
-      <DashboardShell>{children}</DashboardShell>
+      <DashboardAuthGuard>
+        <DashboardShell>{children}</DashboardShell>
+      </DashboardAuthGuard>
     </DashboardStateProvider>
   );
 }

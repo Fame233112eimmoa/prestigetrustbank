@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 import { dashboardNavItems, formatCurrency } from "@/lib/dashboard-data";
+import { clearAuthSession } from "@/lib/auth-session";
 
 import { useDashboard } from "@/components/dashboard/dashboard-provider";
 import {
@@ -41,11 +43,14 @@ export function DashboardSidebar({
   onClose,
 }: DashboardSidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
   const {
     state,
     totalPortfolioBalance,
     accounts,
     unreadNotificationsCount,
+    resetDashboardState,
   } = useDashboard();
 
   function isActive(href: string) {
@@ -65,6 +70,16 @@ export function DashboardSidebar({
   const profileNameParts = state.user.fullName.trim().split(/\s+/);
   const profileLastName = profileNameParts[profileNameParts.length - 1] ?? "";
   const profileInitials = `${state.user.firstName.slice(0, 1)}${profileLastName.slice(0, 1)}`;
+
+  function handleLogout() {
+    onClose();
+    resetDashboardState();
+    clearAuthSession();
+
+    startTransition(() => {
+      router.replace("/login");
+    });
+  }
 
   const sidebarContent = (
     <div className="flex h-full min-h-0 flex-col">
@@ -173,14 +188,15 @@ export function DashboardSidebar({
             </div>
 
             {logoutItem ? (
-              <Link
-                href={logoutItem.href}
-                onClick={onClose}
+              <button
+                type="button"
+                onClick={handleLogout}
+                disabled={isPending}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 <ArrowLeftIcon className="h-5 w-5 text-[var(--color-gold)]" />
                 {logoutItem.label}
-              </Link>
+              </button>
             ) : null}
           </div>
         </div>

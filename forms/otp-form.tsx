@@ -2,9 +2,14 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import type { FormEvent } from "react";
 import { isValidOtpCode } from "@/lib/auth-credentials";
+import {
+  completeOtpSignIn,
+  hasValidAuthSession,
+  isOtpChallengeReady,
+} from "@/lib/auth-session";
 
 export function OtpForm() {
   const router = useRouter();
@@ -13,9 +18,25 @@ export function OtpForm() {
   const [status, setStatus] = useState<"idle" | "error" | "info">("idle");
   const [isPending, startTransition] = useTransition();
 
+  useEffect(() => {
+    if (hasValidAuthSession()) {
+      router.replace("/dashboard");
+      return;
+    }
+
+    if (!isOtpChallengeReady()) {
+      router.replace("/login");
+    }
+  }, [router]);
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setMessage("");
+
+    if (!isOtpChallengeReady()) {
+      router.replace("/login");
+      return;
+    }
 
     if (!/^\d{6}$/.test(code.trim())) {
       setStatus("error");
@@ -28,6 +49,8 @@ export function OtpForm() {
       setMessage("The verification code is incorrect. Please try again.");
       return;
     }
+
+    completeOtpSignIn();
 
     startTransition(() => {
       router.push("/dashboard");

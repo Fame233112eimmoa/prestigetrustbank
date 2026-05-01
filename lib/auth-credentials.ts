@@ -4,11 +4,6 @@ export const authCredentials = {
   otp: "932891",
 } as const;
 
-export const authSessionKeys = {
-  otpReady: "prestige-trust-otp-ready",
-  signedIn: "prestige-trust-signed-in",
-} as const;
-
 export function isValidLoginCredentials(customerId: string, password: string) {
   return (
     customerId.trim() === authCredentials.customerId &&

@@ -6,9 +6,9 @@ import { useState, useTransition } from "react";
 import type { FormEvent } from "react";
 
 import {
-  authSessionKeys,
   isValidLoginCredentials,
 } from "@/lib/auth-credentials";
+import { beginOtpChallenge } from "@/lib/auth-session";
 
 type LoginValues = {
   customerId: string;
@@ -35,7 +35,7 @@ export function LoginForm() {
       return;
     }
 
-    window.sessionStorage.setItem(authSessionKeys.otpReady, "true");
+    beginOtpChallenge();
 
     startTransition(() => {
       router.push("/otp");

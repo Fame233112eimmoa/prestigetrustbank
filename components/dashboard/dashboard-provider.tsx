@@ -55,6 +55,7 @@ type DashboardContextValue = {
   signOutDevice: (deviceId: string) => ActionResult;
   submitSupportMessage: (input: SupportMessageInput) => ActionResult;
   saveSettings: (settings: DashboardSettings) => ActionResult;
+  resetDashboardState: () => void;
 };
 
 const DashboardContext = createContext<DashboardContextValue | null>(null);
@@ -113,10 +114,12 @@ function dashboardNotification(
   };
 }
 
+function createDashboardState() {
+  return structuredClone(initialDashboardState);
+}
+
 export function DashboardStateProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<DashboardState>(() =>
-    structuredClone(initialDashboardState)
-  );
+  const [state, setState] = useState<DashboardState>(createDashboardState);
 
   function transferBetweenAccounts({
     fromAccountId,
@@ -1016,6 +1019,10 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
     };
   }
 
+  function resetDashboardState() {
+    setState(createDashboardState);
+  }
+
   const accountList = [state.accounts.checking, state.accounts.savings];
   const unreadNotificationsCount = state.notifications.filter(
     (notification) => !notification.read
@@ -1049,6 +1056,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
     signOutDevice,
     submitSupportMessage,
     saveSettings,
+    resetDashboardState,
   };
 
   return (

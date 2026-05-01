@@ -1,5 +1,7 @@
 import "./globals.css";
 
+import { AuthSessionBootstrap } from "@/components/auth-session-bootstrap";
+
 export const metadata = {
   title: "Prestige Trust App | Digital Banking Platform",
   description: "Prestige Trust App is a secure digital banking platform for managing accounts, transfers, and financial services online.",
@@ -19,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scroll-smooth">
       <body className="min-h-full flex flex-col bg-[var(--color-ivory)] text-[var(--color-slate-950)] antialiased">
+        <AuthSessionBootstrap />
         {children}
       </body>
     </html>

@@ -5,10 +5,8 @@ import { useRouter } from "next/navigation";
 import { useState, useTransition, type FormEvent } from "react";
 
 import { ShieldIcon } from "@/components/icons";
-import {
-  authSessionKeys,
-  isValidLoginCredentials,
-} from "@/lib/auth-credentials";
+import { isValidLoginCredentials } from "@/lib/auth-credentials";
+import { beginOtpChallenge } from "@/lib/auth-session";
 
 type LoginValues = {
   customerId: string;
@@ -38,7 +36,7 @@ export default function LoginPage() {
       return;
     }
 
-    window.sessionStorage.setItem(authSessionKeys.otpReady, "true");
+    beginOtpChallenge();
 
     startTransition(() => {
       router.push("/otp");
