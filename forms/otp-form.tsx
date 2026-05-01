@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 import type { FormEvent } from "react";
+import { isValidOtpCode } from "@/lib/auth-credentials";
 
 export function OtpForm() {
   const router = useRouter();
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState("000000");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "error" | "info">("idle");
   const [isPending, startTransition] = useTransition();
@@ -19,6 +20,12 @@ export function OtpForm() {
     if (!/^\d{6}$/.test(code.trim())) {
       setStatus("error");
       setMessage("Enter the 6-digit verification code to continue.");
+      return;
+    }
+
+    if (!isValidOtpCode(code)) {
+      setStatus("error");
+      setMessage("The verification code is incorrect. Please try again.");
       return;
     }
 
@@ -53,7 +60,7 @@ export function OtpForm() {
             inputMode="numeric"
             autoComplete="one-time-code"
             className="mt-2 w-full rounded-[1.25rem] border border-[rgba(15,23,42,0.08)] bg-[var(--color-surface-soft)]/70 px-4 py-4 text-center text-2xl tracking-[0.5em] outline-none focus:border-[var(--color-gold)] focus:bg-white"
-            placeholder="246112"
+            placeholder="000000"
           />
         </label>
 
