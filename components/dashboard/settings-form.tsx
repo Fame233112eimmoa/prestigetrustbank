@@ -1,63 +1,27 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-
-import type {
-  AppearanceTheme,
-  DashboardSettings,
-  LanguagePreference,
-} from "@/types/dashboard";
-
 import { PageSectionHeader } from "@/components/dashboard/page-section-header";
 import { useDashboard } from "@/components/dashboard/dashboard-provider";
 
-type FeedbackState = {
-  tone: "success" | "danger";
-  message: string;
-};
+const inputClassName =
+  "w-full rounded-2xl border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-5 py-3.5 text-[var(--color-navy-950)] outline-none";
 
-const themeOptions: AppearanceTheme[] = ["Classic Light", "Midnight"];
-const languageOptions: LanguagePreference[] = [
-  "English (UK)",
-  "French (FR)",
-  "Spanish (ES)",
-];
+const toggleClassName =
+  "h-5 w-5 rounded border-[var(--color-line)] text-[var(--color-navy-950)] accent-[var(--color-navy-950)]";
 
 export function SettingsForm() {
-  const { state, saveSettings } = useDashboard();
-  const [form, setForm] = useState<DashboardSettings>(state.settings);
-  const [feedback, setFeedback] = useState<FeedbackState | null>(null);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const result = saveSettings(form);
-    setFeedback({
-      tone: result.ok ? "success" : "danger",
-      message: result.message,
-    });
-  }
+  const { state } = useDashboard();
+  const { profile, notifications, appearance } = state.settings;
 
   return (
     <section className="panel rounded-[2.25rem] p-6 sm:p-7">
-      <PageSectionHeader
-        eyebrow="Settings"
-        title="Profile and preferences."
-      />
+      <PageSectionHeader eyebrow="Settings" title="Profile and preferences." />
 
-      {feedback ? (
-        <div
-          className={`mt-6 rounded-[1.6rem] border px-5 py-4 text-sm ${
-            feedback.tone === "success"
-              ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-              : "border-rose-200 bg-rose-50 text-rose-700"
-          }`}
-        >
-          {feedback.message}
-        </div>
-      ) : null}
+      <div className="mt-6 rounded-[1.6rem] border border-slate-200 bg-slate-50 px-5 py-4 text-sm text-[var(--color-slate-700)]">
+        This information is view only and cannot be edited online.
+      </div>
 
-      <form className="mt-7 space-y-7" onSubmit={handleSubmit}>
+      <div className="mt-7 space-y-7">
         <div className="rounded-[2rem] border border-[var(--color-line)] p-6 sm:p-7">
           <h3 className="text-xl font-semibold text-[var(--color-navy-950)]">
             Profile
@@ -69,17 +33,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="text"
-                value={form.profile.fullName}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      fullName: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.fullName}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
             <label className="space-y-2.5">
@@ -88,17 +45,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="text"
-                value={form.profile.jointHolderName}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      jointHolderName: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.jointHolderName}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
             <label className="space-y-2.5">
@@ -107,17 +57,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="email"
-                value={form.profile.email}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      email: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.email}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
             <label className="space-y-2.5">
@@ -126,17 +69,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="tel"
-                value={form.profile.phone}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      phone: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.phone}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
             <label className="space-y-2.5">
@@ -145,17 +81,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="text"
-                value={form.profile.occupation}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      occupation: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.occupation}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
             <label className="space-y-2.5">
@@ -164,17 +93,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="text"
-                value={form.profile.city}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      city: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.city}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
             <label className="space-y-2.5">
@@ -183,17 +105,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="text"
-                value={form.profile.country}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      country: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.country}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
             <label className="space-y-2.5 md:col-span-2 xl:col-span-3">
@@ -202,17 +117,10 @@ export function SettingsForm() {
               </span>
               <input
                 type="text"
-                value={form.profile.relationshipManager}
-                onChange={(event) =>
-                  setForm((current) => ({
-                    ...current,
-                    profile: {
-                      ...current.profile,
-                      relationshipManager: event.target.value,
-                    },
-                  }))
-                }
-                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+                value={profile.relationshipManager}
+                readOnly
+                aria-readonly="true"
+                className={inputClassName}
               />
             </label>
           </div>
@@ -230,17 +138,10 @@ export function SettingsForm() {
                 </span>
                 <input
                   type="checkbox"
-                  checked={form.notifications.email}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      notifications: {
-                        ...current.notifications,
-                        email: event.target.checked,
-                      },
-                    }))
-                  }
-                  className="h-5 w-5 rounded border-[var(--color-line)] text-[var(--color-navy-950)]"
+                  checked={notifications.email}
+                  readOnly
+                  disabled
+                  className={toggleClassName}
                 />
               </label>
               <label className="flex items-center justify-between gap-5 rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-5">
@@ -249,17 +150,10 @@ export function SettingsForm() {
                 </span>
                 <input
                   type="checkbox"
-                  checked={form.notifications.sms}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      notifications: {
-                        ...current.notifications,
-                        sms: event.target.checked,
-                      },
-                    }))
-                  }
-                  className="h-5 w-5 rounded border-[var(--color-line)] text-[var(--color-navy-950)]"
+                  checked={notifications.sms}
+                  readOnly
+                  disabled
+                  className={toggleClassName}
                 />
               </label>
               <label className="flex items-center justify-between gap-5 rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-5">
@@ -268,17 +162,10 @@ export function SettingsForm() {
                 </span>
                 <input
                   type="checkbox"
-                  checked={form.notifications.push}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      notifications: {
-                        ...current.notifications,
-                        push: event.target.checked,
-                      },
-                    }))
-                  }
-                  className="h-5 w-5 rounded border-[var(--color-line)] text-[var(--color-navy-950)]"
+                  checked={notifications.push}
+                  readOnly
+                  disabled
+                  className={toggleClassName}
                 />
               </label>
               <label className="flex items-center justify-between gap-5 rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-5">
@@ -287,17 +174,10 @@ export function SettingsForm() {
                 </span>
                 <input
                   type="checkbox"
-                  checked={form.notifications.monthlyInsights}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      notifications: {
-                        ...current.notifications,
-                        monthlyInsights: event.target.checked,
-                      },
-                    }))
-                  }
-                  className="h-5 w-5 rounded border-[var(--color-line)] text-[var(--color-navy-950)]"
+                  checked={notifications.monthlyInsights}
+                  readOnly
+                  disabled
+                  className={toggleClassName}
                 />
               </label>
             </div>
@@ -312,65 +192,34 @@ export function SettingsForm() {
                 <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                   Theme
                 </span>
-                <select
-                  value={form.appearance.theme}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      appearance: {
-                        ...current.appearance,
-                        theme: event.target.value as AppearanceTheme,
-                      },
-                    }))
-                  }
-                  className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
-                >
-                  {themeOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
+                <input
+                  type="text"
+                  value={appearance.theme}
+                  readOnly
+                  aria-readonly="true"
+                  className={inputClassName}
+                />
               </label>
               <label className="space-y-2.5">
                 <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                   Language
                 </span>
-                <select
-                  value={form.appearance.language}
-                  onChange={(event) =>
-                    setForm((current) => ({
-                      ...current,
-                      appearance: {
-                        ...current.appearance,
-                        language: event.target.value as LanguagePreference,
-                      },
-                    }))
-                  }
-                  className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
-                >
-                  {languageOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
+                <input
+                  type="text"
+                  value={appearance.language}
+                  readOnly
+                  aria-readonly="true"
+                  className={inputClassName}
+                />
               </label>
             </div>
 
             <div className="mt-6 rounded-[1.65rem] bg-[var(--color-surface-soft)] px-5 py-5 text-sm leading-7 text-[var(--color-slate-700)]">
-              Theme and language apply to your online banking view.
+              Theme and language are displayed for reference only.
             </div>
           </div>
         </div>
-
-        <button
-          type="submit"
-          className="inline-flex min-w-[180px] items-center justify-center rounded-full bg-[var(--color-navy-950)] px-5 py-3.5 text-sm font-semibold text-white"
-        >
-          Save Settings
-        </button>
-      </form>
+      </div>
     </section>
   );
 }
