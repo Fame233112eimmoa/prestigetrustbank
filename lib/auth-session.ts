@@ -1,4 +1,4 @@
-export const AUTH_SESSION_VERSION = 1;
+export const AUTH_SESSION_VERSION = 2;
 
 const AUTH_STORAGE_KEY_SUFFIX = "v2";
 
@@ -114,7 +114,7 @@ export function beginOtpChallenge() {
     return;
   }
 
-  initializeAuthSessionStorage();
+  clearAuthSession();
   window.sessionStorage.setItem(authSessionKeys.otpReady, "true");
 }
 

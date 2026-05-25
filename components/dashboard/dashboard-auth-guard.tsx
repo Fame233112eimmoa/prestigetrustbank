@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 import { useDashboard } from "@/components/dashboard/dashboard-provider";
 import {
+  authSessionKeys,
   clearAuthSession,
   fetchCurrentSessionVersion,
   getCookieSessionVersion,
@@ -12,7 +13,7 @@ import {
   hasValidAuthSession,
 } from "@/lib/auth-session";
 
-const SESSION_VERSION_CHECK_INTERVAL_MS = 60_000;
+const SESSION_VERSION_CHECK_INTERVAL_MS = 15_000;
 
 export function DashboardAuthGuard({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -78,12 +79,24 @@ export function DashboardAuthGuard({ children }: { children: ReactNode }) {
       }
     }
 
+    function handleStorageChange(event: StorageEvent) {
+      if (
+        !event.key ||
+        event.key === authSessionKeys.signedIn ||
+        event.key === authSessionKeys.sessionVersion
+      ) {
+        void verifySession();
+      }
+    }
+
     window.addEventListener("focus", handleWindowFocus);
+    window.addEventListener("storage", handleStorageChange);
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       window.clearInterval(intervalId);
       window.removeEventListener("focus", handleWindowFocus);
+      window.removeEventListener("storage", handleStorageChange);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);

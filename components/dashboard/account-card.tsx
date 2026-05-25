@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { formatCurrency } from "@/lib/dashboard-data";
-import type { DashboardAccount } from "@/types/dashboard";
+import type { ActivityStatus, DashboardAccount } from "@/types/dashboard";
 
 import { StatusBadge } from "@/components/dashboard/status-badge";
 
@@ -21,6 +21,22 @@ function getStatusTone(status: DashboardAccount["status"]) {
   }
 
   return "warning";
+}
+
+function getTransactionStatusTone(status: ActivityStatus) {
+  if (status === "Completed" || status === "Delivered") {
+    return "success";
+  }
+
+  if (status === "Failed") {
+    return "danger";
+  }
+
+  if (status === "Pending" || status === "Scheduled") {
+    return "warning";
+  }
+
+  return "info";
 }
 
 export function AccountCard({
@@ -92,9 +108,15 @@ export function AccountCard({
             >
               <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-6">
                 <div className="min-w-0">
-                  <p className="font-semibold text-[var(--color-slate-950)]">
-                    {transaction.title}
-                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <p className="font-semibold text-[var(--color-slate-950)]">
+                      {transaction.title}
+                    </p>
+                    <StatusBadge
+                      label={transaction.status}
+                      tone={getTransactionStatusTone(transaction.status)}
+                    />
+                  </div>
                   <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--color-slate-700)]">
                     {transaction.description}
                   </p>

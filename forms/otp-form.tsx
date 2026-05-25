@@ -19,12 +19,18 @@ export function OtpForm() {
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
+    const otpChallengeReady = isOtpChallengeReady();
+
+    if (otpChallengeReady) {
+      return;
+    }
+
     if (hasValidAuthSession()) {
       router.replace("/dashboard");
       return;
     }
 
-    if (!isOtpChallengeReady()) {
+    if (!otpChallengeReady) {
       router.replace("/login");
     }
   }, [router]);
