@@ -237,8 +237,9 @@ const notifications = [
 
 export const initialDashboardState: DashboardState = {
   user: {
-    fullName: "MARIA COX WALKER",
-    firstName: "MARIA COX WALKER",
+    fullName: "Maria Cox Walker",
+    firstName: "Maria",
+    jointHolderName: "Patrick Cheung",
     email: "maria.cox.walker@Gmail.com",
     phone: "+44 20 7946 0186",
     relationshipManager: "Natalie Bennett",
@@ -479,7 +480,8 @@ export const initialDashboardState: DashboardState = {
   ],
   settings: {
     profile: {
-      fullName: "MARIA COX WALKER",
+      fullName: "Maria Cox Walker",
+      jointHolderName: "Patrick Cheung",
       email: "maria.cox.walker@prestigetrustbank.com",
       phone: "+44 20 7946 0186",
       city: "London",

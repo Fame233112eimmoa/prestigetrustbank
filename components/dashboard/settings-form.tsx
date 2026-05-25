@@ -65,7 +65,7 @@ export function SettingsForm() {
           <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             <label className="space-y-2.5">
               <span className="block text-sm font-medium text-[var(--color-slate-950)]">
-                Full name
+                Primary account holder
               </span>
               <input
                 type="text"
@@ -76,6 +76,25 @@ export function SettingsForm() {
                     profile: {
                       ...current.profile,
                       fullName: event.target.value,
+                    },
+                  }))
+                }
+                className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
+              />
+            </label>
+            <label className="space-y-2.5">
+              <span className="block text-sm font-medium text-[var(--color-slate-950)]">
+                Joint account holder
+              </span>
+              <input
+                type="text"
+                value={form.profile.jointHolderName}
+                onChange={(event) =>
+                  setForm((current) => ({
+                    ...current,
+                    profile: {
+                      ...current.profile,
+                      jointHolderName: event.target.value,
                     },
                   }))
                 }

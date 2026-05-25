@@ -110,6 +110,7 @@ export type SupportTicket = {
 export type DashboardUser = {
   fullName: string;
   firstName: string;
+  jointHolderName: string;
   email: string;
   phone: string;
   relationshipManager: string;
@@ -151,6 +152,7 @@ export type AppearanceSettings = {
 export type DashboardSettings = {
   profile: {
     fullName: string;
+    jointHolderName: string;
     email: string;
     phone: string;
     city: string;

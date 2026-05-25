@@ -32,12 +32,16 @@ export function OverviewPage() {
     unreadNotificationsCount,
   } = useDashboard();
   const portfolioAccounts = [accounts.checking, accounts.savings];
+  const jointFirstName = state.user.jointHolderName.trim().split(/\s+/)[0] ?? "";
+  const welcomeTitle = jointFirstName
+    ? `Welcome back ${state.user.firstName} & ${jointFirstName}.`
+    : `Welcome back ${state.user.firstName}.`;
 
   return (
     <div className="space-y-8">
       <DashboardHeader
         eyebrow="Account Summary"
-        title={`Welcome back, ${state.user.firstName}.`}
+        title={welcomeTitle}
         description="Checking, savings, cards, and recent activity."
         actions={
           <>

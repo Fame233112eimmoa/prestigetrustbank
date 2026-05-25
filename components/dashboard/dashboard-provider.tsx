@@ -1007,6 +1007,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
         ...current.user,
         fullName: settings.profile.fullName,
         firstName: settings.profile.fullName.split(" ")[0] ?? settings.profile.fullName,
+        jointHolderName: settings.profile.jointHolderName,
         email: settings.profile.email,
         phone: settings.profile.phone,
         relationshipManager: settings.profile.relationshipManager,

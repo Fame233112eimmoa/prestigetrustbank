@@ -9,6 +9,10 @@ import { BellIcon, GlobeIcon, SettingsIcon } from "@/components/icons";
 export function SettingsPage() {
   const { state } = useDashboard();
   const activeNotifications = Object.values(state.settings.notifications).filter(Boolean).length;
+  const jointHolderName = state.user.jointHolderName.trim();
+  const clientName = jointHolderName
+    ? `${state.user.fullName} & ${jointHolderName}`
+    : state.user.fullName;
 
   return (
     <div className="space-y-8">
@@ -57,7 +61,7 @@ export function SettingsPage() {
                   Client Name
                 </p>
                 <p className="mt-3 text-xl font-semibold leading-tight text-[var(--color-navy-950)]">
-                  {state.user.fullName}
+                  {clientName}
                 </p>
               </div>
               <div className="rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-5">
