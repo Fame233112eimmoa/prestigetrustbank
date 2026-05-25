@@ -1,4 +1,4 @@
-export const AUTH_SESSION_VERSION = 2;
+export const AUTH_SESSION_VERSION = 3;
 
 const AUTH_STORAGE_KEY_SUFFIX = "v2";
 

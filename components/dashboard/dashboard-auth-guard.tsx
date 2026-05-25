@@ -13,7 +13,7 @@ import {
   hasValidAuthSession,
 } from "@/lib/auth-session";
 
-const SESSION_VERSION_CHECK_INTERVAL_MS = 15_000;
+const SESSION_VERSION_CHECK_INTERVAL_MS = 5_000;
 
 export function DashboardAuthGuard({ children }: { children: ReactNode }) {
   const pathname = usePathname();
