@@ -61,7 +61,7 @@ export function LoginForm() {
             value={values.customerId}
             onChange={(event) => setValues((current) => ({ ...current, customerId: event.target.value }))}
             className="mt-2 w-full rounded-[1.25rem] border border-[rgba(15,23,42,0.08)] bg-[var(--color-surface-soft)]/70 px-4 py-3.5 outline-none focus:border-[var(--color-gold)] focus:bg-white"
-            placeholder="PTB-10248"
+            placeholder="Enter your customer ID"
           />
         </label>
 

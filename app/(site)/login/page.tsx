@@ -77,7 +77,7 @@ export default function LoginPage() {
                   }))
                 }
                 className="mt-2 w-full rounded-[1.15rem] border border-[rgba(15,23,42,0.08)] bg-[var(--color-surface-soft)]/80 px-4 py-3.5 outline-none focus:border-[var(--color-gold)] focus:bg-white"
-                placeholder="PTB-10248"
+                placeholder="Enter your customer ID"
                 autoComplete="username"
               />
             </label>
