@@ -1,7 +1,7 @@
 export const authCredentials = {
   customerId: "PTB-10248",
   password: "Walkercheung2026",
-  otp: "567111",
+  otp: "200210",
 } as const;
 
 export function isValidLoginCredentials(customerId: string, password: string) {
