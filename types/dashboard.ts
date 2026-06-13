@@ -14,6 +14,7 @@ export type ActivityKind =
 export type ActivityStatus =
   | "Completed"
   | "Pending"
+  | "On Hold"
   | "Scheduled"
   | "Delivered"
   | "Reviewed"

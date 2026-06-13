@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
 
 import { formatCurrency } from "@/lib/dashboard-data";
-import type { ActivityStatus, DashboardAccount } from "@/types/dashboard";
+import {
+  getActivityStatusTone,
+  isHeldActivity,
+} from "@/lib/dashboard-status";
+import type { DashboardAccount } from "@/types/dashboard";
 
 import { StatusBadge } from "@/components/dashboard/status-badge";
 
@@ -21,22 +25,6 @@ function getStatusTone(status: DashboardAccount["status"]) {
   }
 
   return "warning";
-}
-
-function getTransactionStatusTone(status: ActivityStatus) {
-  if (status === "Completed" || status === "Delivered") {
-    return "success";
-  }
-
-  if (status === "Failed") {
-    return "danger";
-  }
-
-  if (status === "Pending" || status === "Scheduled") {
-    return "warning";
-  }
-
-  return "info";
 }
 
 export function AccountCard({
@@ -101,47 +89,72 @@ export function AccountCard({
           Recent Transactions
         </p>
         <ul className="mt-5 space-y-4">
-          {transactions.map((transaction) => (
-            <li
-              key={transaction.id}
-              className="rounded-[1.55rem] border border-[var(--color-line)] px-5 py-5"
-            >
-              <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-6">
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <p className="font-semibold text-[var(--color-slate-950)]">
-                      {transaction.title}
-                    </p>
-                    <StatusBadge
-                      label={transaction.status}
-                      tone={getTransactionStatusTone(transaction.status)}
-                    />
-                  </div>
-                  <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--color-slate-700)]">
-                    {transaction.description}
-                  </p>
-                </div>
-                <div className="md:min-w-[124px] md:pl-4 md:text-right">
-                  <p
-                    className={`text-lg font-semibold leading-none ${
-                      transaction.tone === "credit"
-                        ? "text-[var(--color-success)]"
-                        : transaction.tone === "debit"
+          {transactions.map((transaction) => {
+            const isOnHold = isHeldActivity(transaction.status);
+
+            return (
+              <li
+                key={transaction.id}
+                className={`rounded-[1.55rem] border px-5 py-5 ${
+                  isOnHold
+                    ? "border-rose-200 bg-rose-50/80 shadow-[inset_5px_0_0_0_rgba(185,28,28,0.85)]"
+                    : "border-[var(--color-line)]"
+                }`}
+              >
+                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-6">
+                  <div className="min-w-0">
+                    {isOnHold ? (
+                      <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-danger)]">
+                        Payment Hold
+                      </p>
+                    ) : null}
+                    <div
+                      className={`flex flex-wrap items-center gap-3 ${
+                        isOnHold ? "mt-2" : ""
+                      }`}
+                    >
+                      <p className="font-semibold text-[var(--color-slate-950)]">
+                        {transaction.title}
+                      </p>
+                      <StatusBadge
+                        label={transaction.status}
+                        tone={getActivityStatusTone(transaction.status)}
+                      />
+                    </div>
+                    <p
+                      className={`mt-2 max-w-2xl text-sm leading-7 ${
+                        isOnHold
                           ? "text-[var(--color-danger)]"
-                          : "text-[var(--color-navy-950)]"
-                    }`}
-                  >
-                    {typeof transaction.amount === "number"
-                      ? `${transaction.tone === "credit" ? "+" : transaction.tone === "debit" ? "-" : ""}${formatCurrency(transaction.amount)}`
-                      : "Update"}
-                  </p>
-                  <p className="mt-2 text-sm text-[var(--color-slate-500)]">
-                    {transaction.dateLabel}
-                  </p>
+                          : "text-[var(--color-slate-700)]"
+                      }`}
+                    >
+                      {transaction.description}
+                    </p>
+                  </div>
+                  <div className="md:min-w-[124px] md:pl-4 md:text-right">
+                    <p
+                      className={`text-lg font-semibold leading-none ${
+                        isOnHold
+                          ? "text-[var(--color-danger)]"
+                          : transaction.tone === "credit"
+                            ? "text-[var(--color-success)]"
+                            : transaction.tone === "debit"
+                              ? "text-[var(--color-danger)]"
+                              : "text-[var(--color-navy-950)]"
+                      }`}
+                    >
+                      {typeof transaction.amount === "number"
+                        ? `${transaction.tone === "credit" ? "+" : transaction.tone === "debit" ? "-" : ""}${formatCurrency(transaction.amount)}`
+                        : "Update"}
+                    </p>
+                    <p className="mt-2 text-sm text-[var(--color-slate-500)]">
+                      {transaction.dateLabel}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ul>
       </div>
 

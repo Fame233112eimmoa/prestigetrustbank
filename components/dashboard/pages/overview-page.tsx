@@ -16,29 +16,13 @@ import {
   WalletIcon,
 } from "@/components/icons";
 import { formatCurrency } from "@/lib/dashboard-data";
-import type { ActivityStatus } from "@/types/dashboard";
+import { getActivityStatusTone } from "@/lib/dashboard-status";
 
 const primaryActionClass =
   "inline-flex items-center justify-center rounded-full bg-[var(--color-navy-950)] px-5 py-3 text-sm font-semibold text-white";
 
 const secondaryActionClass =
   "inline-flex items-center justify-center rounded-full border border-[var(--color-line)] px-5 py-3 text-sm font-semibold text-[var(--color-navy-950)]";
-
-function getTransactionStatusTone(status: ActivityStatus) {
-  if (status === "Completed" || status === "Delivered") {
-    return "success";
-  }
-
-  if (status === "Failed") {
-    return "danger";
-  }
-
-  if (status === "Pending" || status === "Scheduled") {
-    return "warning";
-  }
-
-  return "info";
-}
 
 export function OverviewPage() {
   const {
@@ -224,7 +208,7 @@ export function OverviewPage() {
                               </p>
                               <StatusBadge
                                 label={latestTransaction.status}
-                                tone={getTransactionStatusTone(latestTransaction.status)}
+                                tone={getActivityStatusTone(latestTransaction.status)}
                               />
                             </div>
                             <p className="mt-2 text-sm leading-7 text-[var(--color-slate-700)]">

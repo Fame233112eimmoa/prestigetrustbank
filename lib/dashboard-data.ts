@@ -97,12 +97,12 @@ const checkingTransactions = [
   ),
   activity(
     "acct-checking-2",
-    "Inheritance",
-    "Inheritance.",
+    "Inheritance Payment On Hold",
+    "Inheritance payment is on hold pending account review.",
     3000000,
     "credit",
     "Apr 11",
-    "Pending",
+    "On Hold",
     "payment"
   ),
   activity(
@@ -163,12 +163,12 @@ const globalActivities = [
   ),
   activity(
     "activity-2",
-    "Inheritance",
-    "Inheritance.",
+    "Inheritance Payment On Hold",
+    "Inheritance payment is on hold pending account review.",
     3000000,
     "credit",
     "Apr 11",
-    "Pending",
+    "On Hold",
     "payment"
   ),
   activity(
