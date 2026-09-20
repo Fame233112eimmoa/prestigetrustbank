@@ -88,7 +88,7 @@ export default function CardsPage() {
       </section>
 
       <section className="section-spacing bg-white">
-        <div className="container-shell grid gap-6 xl:grid-cols-[1.02fr_0.98fr] xl:items-stretch">
+        <div className="container-shell grid grid-cols-1 gap-6 xl:grid-cols-[1.02fr_0.98fr] xl:items-stretch">
           <div className="panel rounded-[2.5rem] bg-[linear-gradient(155deg,#10223f,#081426)] p-8 text-white sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">
               Prestige Signature Credit
@@ -151,7 +151,7 @@ export default function CardsPage() {
             theme="light"
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {cardControls.map((item) => {
               const Icon = item.icon;
 

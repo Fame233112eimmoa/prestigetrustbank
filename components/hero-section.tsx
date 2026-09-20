@@ -43,7 +43,7 @@ export function HeroSection() {
   return (
     <section className="overflow-hidden bg-[var(--color-navy-950)] text-white">
       <div className="hero-grid bg-radial-premium">
-        <div className="container-shell grid gap-12 py-18 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-24">
+        <div className="container-shell grid grid-cols-1 gap-12 py-18 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-24">
           <div>
             <p className="inline-flex rounded-full border border-white/14 bg-white/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
               Prestige Trust Bank
@@ -80,7 +80,7 @@ export function HeroSection() {
               </Link>
             </div>
 
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {highlights.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-sm text-slate-200">
                   <span className="rounded-full bg-white/10 p-1 text-[var(--color-gold)]">
@@ -110,7 +110,7 @@ export function HeroSection() {
                   </span>
                 </div>
 
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {heroMetrics.map((metric) => (
                     <article
                       key={metric.label}

@@ -98,14 +98,14 @@ export default function LoansPage() {
       </section>
 
       <section className="section-spacing bg-white">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
+        <div className="container-shell grid grid-cols-1 gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
           <SectionHeader
             eyebrow="Lending Process"
             title="How Borrowing Works"
           />
 
           <div className="panel rounded-[2.25rem] p-8 sm:p-10">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {lendingSteps.map((step, index) => (
                 <article
                   key={step.title}
@@ -146,7 +146,7 @@ export default function LoansPage() {
             theme="light"
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {lendingAdvantages.map((item) => {
               const Icon = item.icon;
 

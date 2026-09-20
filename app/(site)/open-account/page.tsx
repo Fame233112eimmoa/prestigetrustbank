@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function OpenAccountPage() {
   return (
     <section className="section-spacing">
-      <div className="container-shell grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <div className="container-shell grid grid-cols-1 gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div className="rounded-[2.25rem] bg-[var(--color-navy-950)] p-8 text-white sm:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
             Account Opening
@@ -24,7 +24,7 @@ export default function OpenAccountPage() {
             Start your application in a few steps.
           </p>
 
-          <div className="mt-8 grid gap-4">
+          <div className="mt-8 grid grid-cols-1 gap-4">
             {[
               "Personal details",
               "Account type",

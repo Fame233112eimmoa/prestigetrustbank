@@ -26,7 +26,7 @@ export function SecurityPage() {
         description="Passwords, verification, devices, and alerts."
       />
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         <SummaryCard
           label="Two-Factor"
           value={state.security.twoFactorEnabled ? "Enabled" : "Disabled"}

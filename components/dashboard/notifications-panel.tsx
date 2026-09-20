@@ -72,7 +72,7 @@ export function NotificationsPanel({
                   : "border-[rgba(200,164,93,0.32)] bg-[var(--color-surface-soft)]/60"
               }`}
             >
-              <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-6">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-6">
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-3">
                     <span

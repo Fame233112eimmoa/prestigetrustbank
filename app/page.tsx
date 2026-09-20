@@ -184,7 +184,7 @@ export default function HomePage() {
       <main>
         <section className="overflow-hidden bg-[var(--color-navy-950)] text-white">
           <div className="hero-grid bg-radial-premium">
-            <div className="container-shell grid gap-14 py-18 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-24">
+            <div className="container-shell grid grid-cols-1 gap-14 py-18 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:py-24">
               <div>
                 <p className="inline-flex rounded-full border border-white/14 bg-white/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-gold)]">
                   Prestige Trust Bank
@@ -221,7 +221,7 @@ export default function HomePage() {
                   </Link>
                 </div>
 
-                <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
                   <div className="rounded-[1.6rem] border border-white/12 bg-white/6 px-5 py-5 backdrop-blur">
                     <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold-soft)]">
                       Private Service
@@ -269,7 +269,7 @@ export default function HomePage() {
                       </span>
                     </div>
 
-                    <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                    <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
                       {trustIndicators.map((item) => (
                         <article
                           key={item.label}
@@ -334,7 +334,7 @@ export default function HomePage() {
 
         <section className="section-spacing bg-[var(--color-navy-950)] text-white">
           <div className="container-shell">
-            <div className="grid gap-10 overflow-hidden rounded-[2.75rem] border border-white/10 bg-[linear-gradient(145deg,#081426_0%,#10223f_58%,#17345e_100%)] p-6 shadow-[0_30px_90px_rgba(8,20,38,0.24)] sm:p-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center xl:p-10">
+            <div className="grid grid-cols-1 gap-10 overflow-hidden rounded-[2.75rem] border border-white/10 bg-[linear-gradient(145deg,#081426_0%,#10223f_58%,#17345e_100%)] p-6 shadow-[0_30px_90px_rgba(8,20,38,0.24)] sm:p-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center xl:p-10">
               <div className="max-w-2xl">
                 <p className="inline-flex rounded-full border border-white/14 bg-white/6 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                   Premium Cards
@@ -348,7 +348,7 @@ export default function HomePage() {
                   for travel, business, and lifestyle purchases.
                 </p>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {[
                     "Advanced card security",
                     "Rewards on eligible spending",
@@ -410,7 +410,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="mt-14 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-4">
               {services.map((service) => {
                 const Icon = service.icon;
 
@@ -459,7 +459,7 @@ export default function HomePage() {
         </section>
 
         <section className="section-spacing">
-          <div className="container-shell grid gap-8 xl:grid-cols-[0.86fr_1.14fr] xl:items-start">
+          <div className="container-shell grid grid-cols-1 gap-8 xl:grid-cols-[0.86fr_1.14fr] xl:items-start">
             <div className="rounded-[2.4rem] bg-[linear-gradient(145deg,#081426,#10223f)] p-7 text-white sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                 Core Features
@@ -494,7 +494,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {features.map((feature) => {
                 const Icon = feature.icon;
 
@@ -519,8 +519,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="digital-banking" className="section-spacing bg-white">
-          <div className="container-shell grid gap-10 xl:grid-cols-[0.95fr_1.05fr] xl:items-center">
+        <section id="digital-banking" className="section-spacing overflow-hidden bg-white">
+          <div className="container-shell grid grid-cols-1 gap-10 xl:grid-cols-[0.95fr_1.05fr] xl:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                 Digital Banking
@@ -533,7 +533,7 @@ export default function HomePage() {
                 from a digital experience designed for daily banking.
               </p>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="rounded-[1.7rem] bg-[var(--color-surface-soft)] px-5 py-5">
                   <div className="flex items-center gap-3">
                     <GlobeIcon className="h-5 w-5 text-[var(--color-gold)]" />
@@ -590,7 +590,7 @@ export default function HomePage() {
               <div className="absolute right-2 bottom-8 h-36 w-36 rounded-full bg-[var(--color-navy-900)]/12 blur-3xl" />
 
               <div className="relative rounded-[2.5rem] bg-[linear-gradient(160deg,#081426,#10223f)] p-6 text-white shadow-[0_30px_80px_rgba(8,20,38,0.24)] sm:p-8">
-                <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
+                <div className="grid grid-cols-1 gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
                   <div className="mx-auto w-full max-w-[220px] rounded-[2rem] border border-white/12 bg-white/8 p-4">
                     <div className="rounded-[1.6rem] border border-white/10 bg-[var(--color-navy-900)]/75 p-4">
                       <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
@@ -628,7 +628,7 @@ export default function HomePage() {
                       <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
                         Online Banking
                       </p>
-                      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div className="rounded-[1.4rem] border border-white/10 bg-white/6 px-4 py-4">
                           <p className="text-xs uppercase tracking-[0.18em] text-slate-300">
                             Checking
@@ -648,7 +648,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="rounded-[1.8rem] border border-white/10 bg-white/8 p-5">
                         <BankIcon className="h-6 w-6 text-[var(--color-gold)]" />
                         <p className="mt-4 text-lg font-semibold text-white">
@@ -695,7 +695,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
                 {trustIndicators.map((item) => (
                   <article
                     key={item.label}
@@ -714,7 +714,7 @@ export default function HomePage() {
 
         <section id="contact-support" className="section-spacing bg-white">
           <div className="container-shell">
-            <div className="grid gap-10 rounded-[2.5rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 shadow-[0_24px_60px_rgba(8,20,38,0.08)] sm:p-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
+            <div className="grid grid-cols-1 gap-10 rounded-[2.5rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 shadow-[0_24px_60px_rgba(8,20,38,0.08)] sm:p-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                   Contact and Support
@@ -742,7 +742,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {[
                   {
                     label: "Client support",
@@ -778,7 +778,7 @@ export default function HomePage() {
                       <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
                         {item.label}
                       </p>
-                      <p className="mt-3 text-base font-semibold leading-7 text-[var(--color-navy-950)]">
+                      <p className="mt-3 break-words text-base font-semibold leading-7 text-[var(--color-navy-950)]">
                         {item.value}
                       </p>
                     </article>
@@ -800,7 +800,7 @@ export default function HomePage() {
               </h2>
             </div>
 
-            <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
               {testimonials.map((testimonial) => (
                 <article key={testimonial.name} className="panel rounded-[2rem] p-7">
                   <div className="text-5xl leading-none text-[var(--color-gold)]/28">
@@ -822,7 +822,7 @@ export default function HomePage() {
             </div>
 
             <div className="mt-14 rounded-[2.5rem] bg-[linear-gradient(145deg,#10223f,#081426)] px-6 py-10 text-white sm:px-10">
-              <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[var(--color-gold)]">
                     Start Banking
@@ -836,7 +836,7 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
                   <Link
                     href="/open-account"
                     className="inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-6 py-3.5 text-sm font-semibold text-[var(--color-navy-950)] hover:bg-[var(--color-gold-soft)]"

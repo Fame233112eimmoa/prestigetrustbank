@@ -27,7 +27,7 @@ export default function HomePage() {
             description="Checking, savings, lending, cards, treasury services, and digital banking."
             align="center"
           />
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
             {featuredServices.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
@@ -36,7 +36,7 @@ export default function HomePage() {
       </section>
 
       <section className="section-spacing bg-white">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
+        <div className="container-shell grid grid-cols-1 gap-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
           <div>
             <SectionHeader
               eyebrow="Why Prestige Trust"
@@ -54,7 +54,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {benefits.map((benefit) => {
               const Icon = benefit.icon;
 
@@ -83,7 +83,7 @@ export default function HomePage() {
             title="Why clients choose Prestige Trust."
             theme="light"
           />
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {trustStats.map((stat) => (
               <article key={stat.label} className="rounded-[1.75rem] border border-white/12 bg-white/6 p-6">
                 <p className="font-display text-5xl font-semibold text-[var(--color-gold)]">
@@ -103,7 +103,7 @@ export default function HomePage() {
             title="What clients say."
             align="center"
           />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.name} {...testimonial} />
             ))}

@@ -41,7 +41,7 @@ export function QuickActionsPanel() {
         </h2>
       </div>
 
-      <div className="mt-7 grid gap-4">
+      <div className="mt-7 grid grid-cols-1 gap-4">
         {quickActions.map((item) => {
           const Icon = item.icon;
 

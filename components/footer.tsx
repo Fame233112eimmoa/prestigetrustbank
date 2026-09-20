@@ -5,7 +5,7 @@ import { contactDetails, footerGroups, socialPlaceholders } from "@/lib/site-dat
 export function Footer() {
   return (
     <footer className="mt-auto bg-[var(--color-navy-950)] text-white">
-      <div className="container-shell grid gap-10 py-14 lg:grid-cols-[1.2fr_1fr_1fr]">
+      <div className="container-shell grid grid-cols-1 gap-10 py-14 lg:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-gold)]">
             Prestige Trust Bank
@@ -48,18 +48,18 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-shell grid gap-5 py-6 text-sm text-slate-300 md:grid-cols-2 xl:grid-cols-4">
+        <div className="container-shell grid grid-cols-1 gap-5 py-6 text-sm text-slate-300 md:grid-cols-2 xl:grid-cols-4">
           {contactDetails.map((item) => {
             const Icon = item.icon;
 
             return (
               <div key={item.label} className="flex items-start gap-3">
-                <div className="mt-0.5 rounded-xl bg-white/6 p-2 text-[var(--color-gold)]">
+                <div className="mt-0.5 shrink-0 rounded-xl bg-white/6 p-2 text-[var(--color-gold)]">
                   <Icon className="h-4 w-4" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="font-medium text-white">{item.label}</p>
-                  <p className="mt-1 text-slate-300">{item.value}</p>
+                  <p className="mt-1 break-words text-slate-300">{item.value}</p>
                 </div>
               </div>
             );

@@ -87,7 +87,7 @@ export function OpenAccountForm() {
         Complete the form below.
       </p>
 
-      <div className="mt-6 grid gap-5 sm:grid-cols-2">
+      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <InputField
           label="First name"
           error={errors.firstName}
@@ -119,7 +119,7 @@ export function OpenAccountForm() {
         />
       </div>
 
-      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+      <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <SelectField
           label="Account type"
           value={values.accountType}
@@ -139,7 +139,7 @@ export function OpenAccountForm() {
         />
       </div>
 
-      <div className="mt-5 grid gap-5 sm:grid-cols-2">
+      <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
         <InputField
           label="City"
           error={errors.city}

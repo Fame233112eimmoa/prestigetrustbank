@@ -101,7 +101,7 @@ export function AccountCard({
                     : "border-[var(--color-line)]"
                 }`}
               >
-                <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-6">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-6">
                   <div className="min-w-0">
                     {isOnHold ? (
                       <p className="text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-danger)]">

@@ -61,7 +61,7 @@ export default function ContactPage() {
       />
 
       <section className="section-spacing">
-        <div className="container-shell grid gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
+        <div className="container-shell grid grid-cols-1 gap-8 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
           <div
             id="contact-details"
             className="rounded-[2.5rem] bg-[linear-gradient(145deg,#081426,#10223f)] p-8 text-white sm:p-10"
@@ -76,7 +76,7 @@ export default function ContactPage() {
               Call, email, or send a message.
             </p>
 
-            <div className="mt-8 grid gap-4">
+            <div className="mt-8 grid grid-cols-1 gap-4">
               {contactDetails.map((item) => {
                 const Icon = item.icon;
 
@@ -86,12 +86,12 @@ export default function ContactPage() {
                     className="rounded-[1.6rem] border border-white/10 bg-white/6 p-5"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="rounded-xl bg-white/8 p-2 text-[var(--color-gold)]">
+                      <div className="shrink-0 rounded-xl bg-white/8 p-2 text-[var(--color-gold)]">
                         <Icon className="h-4 w-4" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <p className="font-semibold text-white">{item.label}</p>
-                        <p className="mt-1 text-sm leading-7 text-slate-300">{item.value}</p>
+                        <p className="mt-1 break-words text-sm leading-7 text-slate-300">{item.value}</p>
                       </div>
                     </div>
                   </article>

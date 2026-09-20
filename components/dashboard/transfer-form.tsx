@@ -66,7 +66,7 @@ export function TransferForm() {
       ) : null}
 
       <form className="mt-7 space-y-6" onSubmit={handleSubmit}>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <label className="space-y-2.5">
             <span className="block text-sm font-medium text-[var(--color-slate-950)]">
               From account
@@ -120,7 +120,7 @@ export function TransferForm() {
           </label>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <label className="space-y-2.5">
             <span className="block text-sm font-medium text-[var(--color-slate-950)]">
               Amount

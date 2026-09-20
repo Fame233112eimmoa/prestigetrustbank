@@ -32,14 +32,14 @@ export function PaymentsPage() {
         }
       />
 
-      <div className="grid gap-8 2xl:grid-cols-[minmax(0,1.08fr)_400px]">
+      <div className="grid grid-cols-1 gap-8 2xl:grid-cols-[minmax(0,1.08fr)_400px]">
         <div className="space-y-8">
-          <div className="grid gap-6 xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
             <TransferForm />
             <ExternalTransferForm />
           </div>
 
-          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">
+          <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_360px]">
             <PaymentForm />
             <ActivityList title="Payment Activity" items={paymentActivity} />
           </div>

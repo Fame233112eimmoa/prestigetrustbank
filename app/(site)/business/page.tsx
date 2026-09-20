@@ -97,14 +97,14 @@ export default function BusinessPage() {
       />
 
       <section className="section-spacing">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.92fr_1.08fr] xl:items-start">
+        <div className="container-shell grid grid-cols-1 gap-10 xl:grid-cols-[0.92fr_1.08fr] xl:items-start">
           <SectionHeader
             eyebrow="Commercial Capability"
             title="Business banking for companies of every size."
           />
 
           <div className="panel rounded-[2.25rem] p-8 sm:p-10">
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {businessHighlights.map((item, index) => (
                 <article
                   key={item}
@@ -153,7 +153,7 @@ export default function BusinessPage() {
             theme="light"
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {operatingAdvantages.map((item) => {
               const Icon = item.icon;
 

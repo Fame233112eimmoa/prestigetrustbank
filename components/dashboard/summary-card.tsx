@@ -22,8 +22,8 @@ export function SummaryCard({
 
   return (
     <article className="panel flex h-full min-h-[190px] flex-col justify-between rounded-[2rem] p-6 sm:p-7">
-      <div className="flex items-start justify-between gap-5">
-        <div className="min-w-0 pr-2">
+      <div className="flex flex-wrap items-start justify-between gap-x-5 gap-y-4">
+        <div className="min-w-0 grow basis-40 pr-2">
           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
             {label}
           </p>

@@ -19,7 +19,7 @@ export function SettingsPage() {
         description="Profile, notifications, display, and language."
       />
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         <SummaryCard
           label="Theme"
           value={state.settings.appearance.theme}
@@ -41,7 +41,7 @@ export function SettingsPage() {
         />
       </div>
 
-      <div className="grid gap-8 2xl:grid-cols-[minmax(0,1.08fr)_380px]">
+      <div className="grid grid-cols-1 gap-8 2xl:grid-cols-[minmax(0,1.08fr)_380px]">
         <SettingsForm />
 
         <section className="space-y-6 2xl:sticky 2xl:top-8 2xl:self-start">

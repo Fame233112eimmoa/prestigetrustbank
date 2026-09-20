@@ -64,7 +64,7 @@ export function SupportPanel() {
           title="Contact support and review service requests."
         />
 
-        <div className="mt-7 grid gap-7 2xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="mt-7 grid grid-cols-1 gap-7 2xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div className="space-y-5">
             <div className="rounded-[2rem] bg-[var(--color-navy-950)] px-6 py-6 text-white sm:px-7 sm:py-7">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold-soft)]">
@@ -221,7 +221,7 @@ export function SupportPanel() {
                     key={ticket.id}
                     className="rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-5"
                   >
-                    <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-6">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-6">
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-3">
                           <p className="font-semibold text-[var(--color-slate-950)]">

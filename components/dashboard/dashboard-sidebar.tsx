@@ -153,7 +153,7 @@ export function DashboardSidebar({
               <p className="mt-3 text-3xl font-semibold text-white">
                 {formatCurrency(totalPortfolioBalance)}
               </p>
-              <div className="mt-4 grid gap-3">
+              <div className="mt-4 grid grid-cols-1 gap-3">
                 <div className="rounded-[1.25rem] border border-white/10 bg-white/6 px-4 py-3">
                   <p className="text-xs uppercase tracking-[0.2em] text-slate-300">
                     Checking

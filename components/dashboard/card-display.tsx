@@ -64,7 +64,7 @@ export function CardDisplay({
 
   return (
     <section className="panel overflow-hidden rounded-[2.25rem]">
-      <div className="grid gap-0 xl:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]">
+      <div className="grid grid-cols-1 gap-0 xl:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]">
         <div className="bg-[linear-gradient(140deg,#081426_0%,#10223f_52%,#17345e_100%)] px-6 py-7 text-white sm:px-9 sm:py-9">
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
@@ -104,7 +104,7 @@ export function CardDisplay({
             </div>
           </div>
 
-          <div className="mt-7 grid gap-4 sm:grid-cols-3">
+          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div className="flex min-h-[132px] flex-col justify-between rounded-[1.5rem] border border-white/10 bg-white/6 px-5 py-5">
               <p className="text-xs uppercase tracking-[0.18em] text-slate-300">
                 Credit Limit
@@ -156,7 +156,7 @@ export function CardDisplay({
             </div>
           ) : null}
 
-          <div className="mt-7 grid gap-4 sm:grid-cols-2">
+          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex min-h-[136px] flex-col justify-between rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-5">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-slate-500)]">
                 Spending Limit
@@ -225,7 +225,7 @@ export function CardDisplay({
                   key={item.id}
                   className="rounded-[1.5rem] border border-[var(--color-line)] px-5 py-5"
                 >
-                  <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-6">
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-6">
                     <div className="min-w-0">
                       <p className="font-semibold text-[var(--color-slate-950)]">
                         {item.title}

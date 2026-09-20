@@ -396,7 +396,7 @@ export function ExternalTransferForm() {
                   </div>
                 </div>
 
-                <div className="mt-5 grid gap-3 sm:mt-8 sm:gap-4 sm:grid-cols-2">
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:mt-8 sm:gap-4 sm:grid-cols-2">
                   <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.5rem] sm:px-5 sm:py-5">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--color-slate-500)] sm:text-xs sm:tracking-[0.18em]">
                       Amount
@@ -552,7 +552,7 @@ export function ExternalTransferForm() {
                   {feedback.message}
                 </p>
 
-                <div className="mt-5 grid gap-3 sm:mt-7 sm:grid-cols-3">
+                <div className="mt-5 grid grid-cols-1 gap-3 sm:mt-7 sm:grid-cols-3">
                   <div className="rounded-[1.25rem] border border-[var(--color-line)] bg-[var(--color-surface-soft)] px-4 py-4 sm:rounded-[1.35rem]">
                     <div className="flex items-center gap-3">
                       <MapPinIcon className="h-5 w-5 text-rose-600" />
@@ -614,7 +614,7 @@ export function ExternalTransferForm() {
         ) : null}
 
         <form className="mt-7 space-y-6" onSubmit={handleSubmit}>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="space-y-2.5">
               <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                 From account
@@ -653,7 +653,7 @@ export function ExternalTransferForm() {
 
           {form.recipientType === "User" ? (
             <>
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <label className="space-y-2.5">
                   <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                     Saved user
@@ -713,7 +713,7 @@ export function ExternalTransferForm() {
             </>
           ) : (
             <>
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <label className="space-y-2.5">
                   <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                     Saved payee
@@ -752,7 +752,7 @@ export function ExternalTransferForm() {
                 </label>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <label className="space-y-2.5">
                   <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                     Bank name
@@ -853,7 +853,7 @@ export function ExternalTransferForm() {
             </>
           )}
 
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="space-y-2.5">
               <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                 Amount

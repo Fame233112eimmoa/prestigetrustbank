@@ -102,14 +102,14 @@ export default function DigitalBankingPage() {
       </section>
 
       <section className="section-spacing bg-white">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
+        <div className="container-shell grid grid-cols-1 gap-10 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
           <SectionHeader
             eyebrow="Everyday Banking"
             title="Everyday Banking"
           />
 
           <div className="panel rounded-[2.25rem] p-8 sm:p-10">
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {digitalJourneys.map((item) => {
                 const Icon = item.icon;
 
@@ -143,7 +143,7 @@ export default function DigitalBankingPage() {
             theme="light"
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {confidenceLayers.map((item) => {
               const Icon = item.icon;
 

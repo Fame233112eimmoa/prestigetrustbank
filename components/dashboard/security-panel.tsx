@@ -87,7 +87,7 @@ export function SecurityPanel() {
           </div>
         ) : null}
 
-        <div className="mt-7 grid gap-7 2xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        <div className="mt-7 grid grid-cols-1 gap-7 2xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
           <form
             className="rounded-[2rem] border border-[var(--color-line)] p-6 sm:p-7"
             onSubmit={handlePasswordSubmit}
@@ -159,8 +159,8 @@ export function SecurityPanel() {
           </form>
 
           <div className="space-y-6 rounded-[2rem] border border-[var(--color-line)] p-6 sm:p-7">
-            <div className="flex items-start justify-between gap-4">
-              <div>
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="min-w-0">
                 <h3 className="text-xl font-semibold text-[var(--color-navy-950)]">
                   Authentication & Alerts
                 </h3>

@@ -26,7 +26,7 @@ export function SettingsForm() {
           <h3 className="text-xl font-semibold text-[var(--color-navy-950)]">
             Profile
           </h3>
-          <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             <label className="space-y-2.5">
               <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                 Primary account holder
@@ -114,7 +114,7 @@ export function SettingsForm() {
           </div>
         </div>
 
-        <div className="grid gap-7 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        <div className="grid grid-cols-1 gap-7 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
           <div className="rounded-[2rem] border border-[var(--color-line)] p-6 sm:p-7">
             <h3 className="text-xl font-semibold text-[var(--color-navy-950)]">
               Notifications
@@ -175,7 +175,7 @@ export function SettingsForm() {
             <h3 className="text-xl font-semibold text-[var(--color-navy-950)]">
               Display and Language
             </h3>
-            <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
               <label className="space-y-2.5">
                 <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                   Theme

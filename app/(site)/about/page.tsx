@@ -107,7 +107,7 @@ export default function AboutPage() {
       />
 
       <section className="section-spacing">
-        <div className="container-shell grid gap-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
+        <div className="container-shell grid grid-cols-1 gap-10 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
           <SectionHeader
             eyebrow="Institutional Profile"
             title="Who We Are"
@@ -122,7 +122,7 @@ export default function AboutPage() {
               and direct access to experienced bankers.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {operatingCommitments.map((item, index) => (
                 <article
                   key={item.title}
@@ -165,7 +165,7 @@ export default function AboutPage() {
             theme="light"
           />
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {serviceModel.map((item) => {
               const Icon = item.icon;
 

@@ -52,9 +52,9 @@ export function AccountsPage() {
         </div>
       ) : null}
 
-      <div className="grid gap-8 2xl:grid-cols-[minmax(0,1.08fr)_360px]">
+      <div className="grid grid-cols-1 gap-8 2xl:grid-cols-[minmax(0,1.08fr)_360px]">
         <div className="space-y-6">
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             <SummaryCard
               label="Total Balance"
               value={formatCurrency(totalPortfolioBalance)}
@@ -76,7 +76,7 @@ export function AccountsPage() {
             />
           </div>
 
-          <div className="grid gap-6 xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
             {accountList.map((account) => (
               <AccountCard
                 key={account.id}

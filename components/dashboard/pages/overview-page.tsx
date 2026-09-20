@@ -53,10 +53,10 @@ export function OverviewPage() {
         }
       />
 
-      <div className="grid gap-8 2xl:grid-cols-[minmax(0,1.08fr)_390px]">
+      <div className="grid grid-cols-1 gap-8 2xl:grid-cols-[minmax(0,1.08fr)_390px]">
         <div className="space-y-8">
           <section className="panel rounded-[2.25rem] p-6 sm:p-7">
-            <div className="grid gap-7 xl:grid-cols-[minmax(0,1.18fr)_320px] xl:items-start">
+            <div className="grid grid-cols-1 gap-7 xl:grid-cols-[minmax(0,1.18fr)_320px] xl:items-start">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-gold)]">
                   Portfolio
@@ -64,7 +64,7 @@ export function OverviewPage() {
                 <h2 className="mt-4 text-[2rem] font-semibold leading-tight text-[var(--color-navy-950)] sm:text-[2.35rem]">
                   Balances and card position
                 </h2>
-                <div className="mt-7 grid gap-5 md:grid-cols-2">
+                <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-2">
                   <SummaryCard
                     label="Total Balance"
                     value={formatCurrency(totalPortfolioBalance)}
@@ -122,7 +122,7 @@ export function OverviewPage() {
                   </p>
                 </div>
 
-                <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-1">
                   <div className="rounded-[1.5rem] border border-white/10 bg-white/6 px-5 py-5">
                     <p className="text-xs uppercase tracking-[0.16em] text-slate-300">
                       Available Credit
@@ -150,7 +150,7 @@ export function OverviewPage() {
               </section>
             </div>
 
-            <div className="mt-8 grid gap-5 xl:grid-cols-2">
+            <div className="mt-8 grid grid-cols-1 gap-5 xl:grid-cols-2">
               {portfolioAccounts.map((account) => {
                 const latestTransaction = account.recentTransactions[0];
 
@@ -254,7 +254,7 @@ export function OverviewPage() {
             </div>
           </section>
 
-          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
+          <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
             <ActivityList
               title="Recent Activity"
               items={state.activities.slice(0, 6)}
@@ -273,7 +273,7 @@ export function OverviewPage() {
             <h2 className="mt-4 text-[1.9rem] font-semibold leading-tight text-[var(--color-navy-950)]">
               Relationship details
             </h2>
-            <div className="mt-7 grid gap-4 sm:grid-cols-2 2xl:grid-cols-1">
+            <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 2xl:grid-cols-1">
               <div className="rounded-[1.6rem] bg-[var(--color-surface-soft)] px-5 py-5">
                 <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-slate-500)]">
                   Relationship Manager

@@ -48,7 +48,7 @@ export function CardsPage() {
         }
       />
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
         <SummaryCard
           label="Cards on File"
           value={cards.length.toString()}
@@ -70,7 +70,7 @@ export function CardsPage() {
         />
       </div>
 
-      <div className="grid gap-8 2xl:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="grid grid-cols-1 gap-8 2xl:grid-cols-[minmax(0,1fr)_360px]">
         <div className="space-y-6">
           {cards.map((card) => (
             <CardDisplay
@@ -111,7 +111,7 @@ export function CardsPage() {
                     />
                   </div>
 
-                  <div className="mt-5 grid gap-4 sm:grid-cols-2 2xl:grid-cols-1">
+                  <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 2xl:grid-cols-1">
                     <div>
                       <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-slate-500)]">
                         Spending Limit
@@ -141,7 +141,7 @@ export function CardsPage() {
             <h2 className="mt-4 text-[1.9rem] font-semibold leading-tight">
               Portfolio status
             </h2>
-            <div className="mt-7 grid gap-4 sm:grid-cols-2 2xl:grid-cols-1">
+            <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 2xl:grid-cols-1">
               <div className="rounded-[1.6rem] border border-white/10 bg-white/6 px-5 py-5">
                 <p className="text-xs uppercase tracking-[0.16em] text-slate-300">
                   Active Cards
