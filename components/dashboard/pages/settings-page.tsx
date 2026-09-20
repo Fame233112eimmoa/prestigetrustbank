@@ -9,10 +9,7 @@ import { BellIcon, GlobeIcon, SettingsIcon } from "@/components/icons";
 export function SettingsPage() {
   const { state } = useDashboard();
   const activeNotifications = Object.values(state.settings.notifications).filter(Boolean).length;
-  const jointHolderName = state.user.jointHolderName.trim();
-  const clientName = jointHolderName
-    ? `${state.user.fullName} & ${jointHolderName}`
-    : state.user.fullName;
+  const clientName = state.user.fullName;
 
   return (
     <div className="space-y-8">

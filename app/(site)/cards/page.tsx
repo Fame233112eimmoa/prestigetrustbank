@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Cards",
   description:
     "Cards from Prestige Trust Bank.",
+  alternates: { canonical: "/cards" },
 };
 
 const cardMetrics = [

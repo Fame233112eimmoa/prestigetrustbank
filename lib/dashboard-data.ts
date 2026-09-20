@@ -28,30 +28,30 @@ function activity(
 }
 
 export function formatCurrency(amount: number) {
-  return new Intl.NumberFormat("en-GB", {
+  return new Intl.NumberFormat("da-DK", {
     style: "currency",
-    currency: "GBP",
+    currency: "DKK",
   }).format(amount);
 }
 
 export function createDateLabel(date = new Date()) {
-  return new Intl.DateTimeFormat("en-GB", {
+  return new Intl.DateTimeFormat("da-DK", {
     month: "short",
     day: "numeric",
   }).format(date);
 }
 
-export const ukBankOptions = [
-  "Barclays Bank",
-  "HSBC UK Bank",
-  "Lloyds Bank",
-  "NatWest",
-  "Santander UK",
-  "Royal Bank of Scotland",
-  "Nationwide Building Society",
-  "Halifax",
-  "TSB Bank",
-  "Metro Bank",
+export const danishBankOptions = [
+  "Danske Bank",
+  "Nordea Bank",
+  "Jyske Bank",
+  "Sydbank",
+  "Nykredit Bank",
+  "Spar Nord Bank",
+  "Arbejdernes Landsbank",
+  "Handelsbanken Denmark",
+  "Ringkjøbing Landbobank",
+  "Lån & Spar Bank",
 ];
 
 export const dashboardNavItems: DashboardNavItem[] = [
@@ -237,13 +237,12 @@ const notifications = [
 
 export const initialDashboardState: DashboardState = {
   user: {
-    fullName: "Maria Cox Walker",
+    fullName: "Maria Cox Pedersen",
     firstName: "Maria",
-    jointHolderName: "Patrick Cheung",
-    email: "maria.cox.walker@Gmail.com",
-    phone: "+44 7529 530076",
+    email: "maria.cox.pedersen@Gmail.com",
+    phone: "+45 27 52 95 30",
     relationshipManager: "Natalie Bennett",
-    branch: "London Private Banking Centre",
+    branch: "Copenhagen Private Banking Centre",
     memberSince: "2014",
     clientId: "PTB-10248",
   },
@@ -272,7 +271,7 @@ export const initialDashboardState: DashboardState = {
       id: "card-signature",
       name: "Prestige Signature Credit",
       type: "Signature Credit",
-      holder: "MARIA COX WALKER",
+      holder: "MARIA COX PEDERSEN",
       maskedNumber: "•••• 4829",
       expiry: "04/30",
       network: "Visa Signature",
@@ -308,7 +307,7 @@ export const initialDashboardState: DashboardState = {
       id: "card-reserve",
       name: "Prestige Reserve Debit",
       type: "Reserve Debit",
-      holder: "MARIA COX WALKER",
+      holder: "MARIA COX PEDERSEN",
       maskedNumber: "•••• 1093",
       expiry: "11/29",
       network: "Mastercard World",
@@ -392,28 +391,28 @@ export const initialDashboardState: DashboardState = {
     },
     {
       id: "recipient-bank-1",
-      name: "Kensington Property Services",
+      name: "Østerbro Property Services",
       type: "Bank",
       destinationLabel: "•••• 1021",
-      bankName: "Barclays Bank",
+      bankName: "Danske Bank",
       routingNumber: "203012",
       accountNumber: "45521021",
     },
     {
       id: "recipient-bank-2",
-      name: "London Mortgage Services",
+      name: "Copenhagen Mortgage Services",
       type: "Bank",
       destinationLabel: "•••• 4990",
-      bankName: "HSBC UK Bank",
+      bankName: "Nordea Bank",
       routingNumber: "401276",
       accountNumber: "78234990",
     },
     {
       id: "recipient-bank-3",
-      name: "Manchester Logistics Ltd",
+      name: "Aarhus Logistics ApS",
       type: "Bank",
       destinationLabel: "•••• 5077",
-      bankName: "Lloyds Bank",
+      bankName: "Jyske Bank",
       routingNumber: "309674",
       accountNumber: "63455077",
     },
@@ -426,21 +425,21 @@ export const initialDashboardState: DashboardState = {
       {
         id: "device-1",
         name: "MacBook Pro - Safari",
-        location: "London, UK",
+        location: "Copenhagen, Denmark",
         lastActive: "Active now",
         status: "Current Session",
       },
       {
         id: "device-2",
         name: "iPhone 15 - Prestige App",
-        location: "London, UK",
+        location: "Copenhagen, Denmark",
         lastActive: "Today, 8:42 AM",
         status: "Trusted Device",
       },
       {
         id: "device-3",
         name: "iPad Air - Web Access",
-        location: "Manchester, UK",
+        location: "Aarhus, Denmark",
         lastActive: "Apr 18, 4:12 PM",
         status: "Trusted Device",
       },
@@ -480,12 +479,11 @@ export const initialDashboardState: DashboardState = {
   ],
   settings: {
     profile: {
-      fullName: "Maria Cox Walker",
-      jointHolderName: "Patrick Cheung",
-      email: "maria.cox.walker@prestigetrustbank.com",
-      phone: "+44 7529 530076",
-      city: "London",
-      country: "United Kingdom",
+      fullName: "Maria Cox Pedersen",
+      email: "maria.cox.pedersen@prestigetrustbank.com",
+      phone: "+45 27 52 95 30",
+      city: "Copenhagen",
+      country: "Denmark",
       occupation: "Managing Partner",
       relationshipManager: "Natalie Bennett",
     },
@@ -497,7 +495,7 @@ export const initialDashboardState: DashboardState = {
     },
     appearance: {
       theme: "Classic Light",
-      language: "English (UK)",
+      language: "Danish (DK)",
     },
   },
 };

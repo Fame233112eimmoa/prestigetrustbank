@@ -33,10 +33,7 @@ export function OverviewPage() {
     unreadNotificationsCount,
   } = useDashboard();
   const portfolioAccounts = [accounts.checking, accounts.savings];
-  const jointFirstName = state.user.jointHolderName.trim().split(/\s+/)[0] ?? "";
-  const welcomeTitle = jointFirstName
-    ? `Welcome back ${state.user.firstName} & ${jointFirstName}.`
-    : `Welcome back ${state.user.firstName}.`;
+  const welcomeTitle = `Welcome back ${state.user.firstName}.`;
 
   return (
     <div className="space-y-8">
@@ -89,7 +86,7 @@ export function OverviewPage() {
                   />
                   <SummaryCard
                     label="Rewards"
-                    value={`${primaryCard.rewards.toLocaleString("en-GB")} pts`}
+                    value={`${primaryCard.rewards.toLocaleString("da-DK")} pts`}
                     detail="Available rewards"
                     icon={SparkleIcon}
                     accent="gold"

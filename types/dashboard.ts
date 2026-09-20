@@ -111,7 +111,6 @@ export type SupportTicket = {
 export type DashboardUser = {
   fullName: string;
   firstName: string;
-  jointHolderName: string;
   email: string;
   phone: string;
   relationshipManager: string;
@@ -141,7 +140,7 @@ export type NotificationSettings = {
 export type AppearanceTheme = "Classic Light" | "Midnight";
 
 export type LanguagePreference =
-  | "English (UK)"
+  | "Danish (DK)"
   | "French (FR)"
   | "Spanish (ES)";
 
@@ -153,7 +152,6 @@ export type AppearanceSettings = {
 export type DashboardSettings = {
   profile: {
     fullName: string;
-    jointHolderName: string;
     email: string;
     phone: string;
     city: string;

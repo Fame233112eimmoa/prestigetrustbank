@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn more about Prestige Trust Bank.",
+  alternates: { canonical: "/about" },
 };
 
 const heritageMetrics = [

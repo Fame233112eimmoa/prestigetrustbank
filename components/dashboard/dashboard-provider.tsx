@@ -313,7 +313,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
       if (resolvedType === "Bank" && !/^\d{6}$/.test(resolvedRouting)) {
         result = {
           ok: false,
-          message: "Enter a valid 6-digit sort code.",
+          message: "Enter a valid 6-digit registration number.",
         };
         return current;
       }
@@ -331,7 +331,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
           ? [resolvedEmail, referenceLabel]
           : [
               resolvedBankName,
-              `Sort code ${resolvedRouting}`,
+              `Registration number ${resolvedRouting}`,
               `Acct ${referenceLabel || maskAccountNumber(resolvedAccountNumber)}`,
             ];
       const detailLabel = detailParts.filter(Boolean).join(" • ");
@@ -417,7 +417,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
           ? [resolvedEmail]
           : [
               resolvedBankName,
-              resolvedRouting ? `Sort code ${resolvedRouting}` : "",
+              resolvedRouting ? `Registration number ${resolvedRouting}` : "",
               resolvedAccountNumber
                 ? `Acct ${maskAccountNumber(resolvedAccountNumber)}`
                 : "",
@@ -1007,7 +1007,6 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
         ...current.user,
         fullName: settings.profile.fullName,
         firstName: settings.profile.fullName.split(" ")[0] ?? settings.profile.fullName,
-        jointHolderName: settings.profile.jointHolderName,
         email: settings.profile.email,
         phone: settings.profile.phone,
         relationshipManager: settings.profile.relationshipManager,

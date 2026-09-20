@@ -70,10 +70,7 @@ export function DashboardSidebar({
   const profileNameParts = state.user.fullName.trim().split(/\s+/);
   const profileLastName = profileNameParts[profileNameParts.length - 1] ?? "";
   const profileInitials = `${state.user.firstName.slice(0, 1)}${profileLastName.slice(0, 1)}`;
-  const jointHolderName = state.user.jointHolderName.trim();
-  const profileDisplayName = jointHolderName
-    ? `${state.user.fullName} & ${jointHolderName}`
-    : state.user.fullName;
+  const profileDisplayName = state.user.fullName;
 
   function handleLogout() {
     onClose();

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Prestige Trust App | Digital Banking Platform",
   description:
     "Prestige Trust App is a secure digital banking platform for managing accounts, transfers, and financial services online.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

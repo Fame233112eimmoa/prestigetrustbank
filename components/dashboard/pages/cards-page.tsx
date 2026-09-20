@@ -63,7 +63,7 @@ export function CardsPage() {
         />
         <SummaryCard
           label="Rewards"
-          value={`${totalRewards.toLocaleString("en-GB")} pts`}
+          value={`${totalRewards.toLocaleString("da-DK")} pts`}
           detail="Current rewards"
           icon={SparkleIcon}
           accent="gold"

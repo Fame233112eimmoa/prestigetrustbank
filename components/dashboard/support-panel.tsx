@@ -78,7 +78,7 @@ export function SupportPanel() {
                   <PhoneIcon className="mt-1 h-5 w-5 text-[var(--color-gold-soft)]" />
                   <div>
                     <p className="font-semibold text-white">Client support line</p>
-                    <p>+44 20 7946 0134</p>
+                    <p>+45 33 12 34 20</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

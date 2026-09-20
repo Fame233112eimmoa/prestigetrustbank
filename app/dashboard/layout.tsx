@@ -7,6 +7,7 @@ import { DashboardShell } from "@/components/dashboard/dashboard-shell";
 export const metadata: Metadata = {
   title: "Online Banking",
   description: "Prestige Trust Bank online banking.",
+  robots: { index: false, follow: false },
 };
 
 export default function DashboardLayout({

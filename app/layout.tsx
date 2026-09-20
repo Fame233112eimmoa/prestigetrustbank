@@ -1,15 +1,48 @@
+import type { Metadata } from "next";
+
 import "./globals.css";
 
 import { AuthSessionBootstrap } from "@/components/auth-session-bootstrap";
 
-export const metadata = {
-  title: "Prestige Trust App | Digital Banking Platform",
-  description: "Prestige Trust App is a secure digital banking platform for managing accounts, transfers, and financial services online.",
+const siteUrl = "https://prestigetrustapp.com";
+const siteName = "Prestige Trust App";
+const defaultTitle = "Prestige Trust App | Digital Banking Platform";
+const defaultDescription =
+  "Prestige Trust App is a secure digital banking platform for managing accounts, transfers, and financial services online.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: defaultTitle,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
   icons: {
     icon: [
       { url: "/favicon.ico" },
-      { url: "/favicon.png", type: "image/png", sizes: "512x512" }
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
     ],
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName,
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [{ url: "/images/prestige-premium-card.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: ["/images/prestige-premium-card.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

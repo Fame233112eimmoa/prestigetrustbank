@@ -7,6 +7,7 @@ import { OtpForm } from "@/forms/otp-form";
 export const metadata: Metadata = {
   title: "Verify Login",
   description: "Verify your Prestige Trust Bank sign-in.",
+  robots: { index: false, follow: false },
 };
 
 export default function OtpPage() {

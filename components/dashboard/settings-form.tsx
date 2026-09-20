@@ -41,18 +41,6 @@ export function SettingsForm() {
             </label>
             <label className="space-y-2.5">
               <span className="block text-sm font-medium text-[var(--color-slate-950)]">
-                Joint account holder
-              </span>
-              <input
-                type="text"
-                value={profile.jointHolderName}
-                readOnly
-                aria-readonly="true"
-                className={inputClassName}
-              />
-            </label>
-            <label className="space-y-2.5">
-              <span className="block text-sm font-medium text-[var(--color-slate-950)]">
                 Email
               </span>
               <input

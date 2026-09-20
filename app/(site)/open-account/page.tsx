@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Open Account",
   description:
     "Open a Prestige Trust Bank account.",
+  alternates: { canonical: "/open-account" },
 };
 
 export default function OpenAccountPage() {

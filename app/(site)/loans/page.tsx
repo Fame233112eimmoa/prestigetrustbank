@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Loans",
   description:
     "Lending from Prestige Trust Bank.",
+  alternates: { canonical: "/loans" },
 };
 
 const lendingMetrics = [

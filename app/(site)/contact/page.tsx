@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contact Prestige Trust Bank for personal banking, business services, lending guidance, and digital support.",
+  alternates: { canonical: "/contact" },
 };
 
 const contactMetrics = [

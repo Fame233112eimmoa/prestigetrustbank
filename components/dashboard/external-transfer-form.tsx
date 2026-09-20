@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 
-import { formatCurrency, ukBankOptions } from "@/lib/dashboard-data";
+import { formatCurrency, danishBankOptions } from "@/lib/dashboard-data";
 import type {
   AccountId,
   ExternalTransferInput,
@@ -58,10 +58,10 @@ const PROCESSING_DELAY_MS = 1800;
 
 function getBankSelectValue(bankName?: string) {
   if (!bankName) {
-    return ukBankOptions[0] ?? CUSTOM_BANK_ENTRY;
+    return danishBankOptions[0] ?? CUSTOM_BANK_ENTRY;
   }
 
-  return ukBankOptions.includes(bankName) ? bankName : CUSTOM_BANK_ENTRY;
+  return danishBankOptions.includes(bankName) ? bankName : CUSTOM_BANK_ENTRY;
 }
 
 function userDefaults(recipient?: TransferRecipient) {
@@ -78,7 +78,7 @@ function bankDefaults(recipient?: TransferRecipient) {
     recipientName: recipient?.name ?? "",
     bankName: getBankSelectValue(recipient?.bankName),
     customBankName:
-      recipient?.bankName && !ukBankOptions.includes(recipient.bankName)
+      recipient?.bankName && !danishBankOptions.includes(recipient.bankName)
         ? recipient.bankName
         : "",
     routingNumber: recipient?.routingNumber ?? "",
@@ -90,7 +90,7 @@ function maskAccountNumber(accountNumber: string) {
   return `•••• ${accountNumber.slice(-4)}`;
 }
 
-function formatSortCode(routingNumber: string) {
+function formatRegistrationNumber(routingNumber: string) {
   if (!/^\d{6}$/.test(routingNumber)) {
     return routingNumber;
   }
@@ -187,8 +187,8 @@ export function ExternalTransferForm() {
   const previewRecipientName =
     form.recipientName || selectedRecipient?.name || "Transfer preview";
   const previewEmail = form.email || selectedRecipient?.email || "Enter recipient email";
-  const previewSortCode =
-    form.routingNumber || selectedRecipient?.routingNumber || "Enter sort code";
+  const previewRegistrationNumber =
+    form.routingNumber || selectedRecipient?.routingNumber || "Enter registration number";
   const previewAccountNumber =
     form.accountNumber || selectedRecipient?.destinationLabel || "Enter account number";
 
@@ -272,7 +272,7 @@ export function ExternalTransferForm() {
     }
 
     if (form.recipientType === "Bank" && !/^\d{6}$/.test(resolvedRoutingNumber)) {
-      return { error: "Enter a valid 6-digit sort code." };
+      return { error: "Enter a valid 6-digit registration number." };
     }
 
     if (
@@ -287,7 +287,7 @@ export function ExternalTransferForm() {
         ? [resolvedEmail, selectedRecipient?.destinationLabel ?? ""].filter(Boolean)
         : [
             resolvedTransferBank,
-            `Sort code ${formatSortCode(resolvedRoutingNumber)}`,
+            `Registration number ${formatRegistrationNumber(resolvedRoutingNumber)}`,
             `Account ${
               selectedRecipient?.destinationLabel ??
               maskAccountNumber(resolvedAccountNumber)
@@ -772,7 +772,7 @@ export function ExternalTransferForm() {
                     }
                     className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
                   >
-                    {ukBankOptions.map((bank) => (
+                    {danishBankOptions.map((bank) => (
                       <option key={bank} value={bank}>
                         {bank}
                       </option>
@@ -783,7 +783,7 @@ export function ExternalTransferForm() {
 
                 <label className="space-y-2.5">
                   <span className="block text-sm font-medium text-[var(--color-slate-950)]">
-                    Sort code
+                    Registration number
                   </span>
                   <input
                     type="text"
@@ -800,7 +800,7 @@ export function ExternalTransferForm() {
                           .slice(0, 6),
                       }))
                     }
-                    placeholder="6-digit sort code"
+                    placeholder="6-digit registration number"
                     className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
                   />
                 </label>
@@ -909,7 +909,7 @@ export function ExternalTransferForm() {
               <>
                 <p className="mt-1">Send to Bank</p>
                 <p>{resolvedBankName || "Select or enter bank name"}</p>
-                <p>{previewSortCode}</p>
+                <p>{previewRegistrationNumber}</p>
                 <p>{previewAccountNumber}</p>
               </>
             )}

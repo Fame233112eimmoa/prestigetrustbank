@@ -149,7 +149,7 @@ export const footerGroups = [
 export const contactDetails = [
   {
     label: "Client support",
-    value: "+44 20 7946 0148",
+    value: "+45 33 12 34 56",
     icon: PhoneIcon,
   },
   {
@@ -159,12 +159,12 @@ export const contactDetails = [
   },
   {
     label: "Head office",
-    value: "25 King William Street, London EC4R 9AT",
+    value: "12 Nyhavn, 1051 Copenhagen K",
     icon: MapPinIcon,
   },
   {
     label: "Service hours",
-    value: "Mon-Fri, 8:00 AM-6:00 PM GMT",
+    value: "Mon-Fri, 8:00 AM-6:00 PM CET",
     icon: ClockIcon,
   },
 ];

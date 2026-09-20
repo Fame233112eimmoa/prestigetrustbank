@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Personal Banking",
   description:
     "Personal banking from Prestige Trust Bank.",
+  alternates: { canonical: "/personal-banking" },
 };
 
 const personalMetrics = [
