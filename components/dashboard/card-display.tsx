@@ -126,7 +126,7 @@ export function CardDisplay({
                 Rewards
               </p>
               <p className="mt-4 text-xl font-semibold leading-tight sm:text-[1.35rem]">
-                {card.rewards.toLocaleString("da-DK")} pts
+                {card.rewards.toLocaleString("en-IE")} pts
               </p>
             </div>
           </div>

@@ -28,7 +28,7 @@ function activity(
 }
 
 export function formatCurrency(amount: number) {
-  return new Intl.NumberFormat("da-DK", {
+  return new Intl.NumberFormat("en-IE", {
     style: "currency",
     currency: "EUR",
   }).format(amount);
