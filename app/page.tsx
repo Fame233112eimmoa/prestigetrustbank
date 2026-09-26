@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { BrandLogo } from "@/components/brand-logo";
 import { Footer } from "@/components/footer";
 import {
   ArrowRightIcon,
@@ -120,9 +121,7 @@ export default function HomePage() {
         <div className="container-shell py-3.5 sm:py-4">
           <div className="flex items-center justify-between gap-3 sm:gap-4">
             <Link href="/" className="flex min-w-0 items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy-950)] text-white shadow-lg shadow-slate-950/15">
-                <ShieldIcon className="h-5 w-5" />
-              </div>
+              <BrandLogo />
               <div className="hidden sm:block">
                 <p className="text-base font-semibold uppercase tracking-[0.1em] text-[var(--color-navy-950)]">
                   Prestige Trust

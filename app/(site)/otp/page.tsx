@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { ShieldIcon } from "@/components/icons";
+import { BrandLogo } from "@/components/brand-logo";
 import { OtpForm } from "@/forms/otp-form";
 
 export const metadata: Metadata = {
@@ -17,9 +17,7 @@ export default function OtpPage() {
 
       <div className="relative mx-auto flex w-full max-w-md flex-col items-center">
         <Link href="/" className="mb-5 flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[var(--color-navy-950)] text-white shadow-lg shadow-slate-950/15">
-            <ShieldIcon className="h-5 w-5" />
-          </div>
+          <BrandLogo />
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[var(--color-navy-950)]">
               Prestige Trust
