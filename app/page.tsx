@@ -600,7 +600,7 @@ export default function HomePage() {
                         <p className="text-xs uppercase tracking-[0.18em] text-slate-300">
                           Available Balance
                         </p>
-                        <p className="mt-2 text-2xl font-semibold">18.240,90 kr.</p>
+                        <p className="mt-2 text-2xl font-semibold">18.240,90 €</p>
                       </div>
                       <div className="mt-3 space-y-3">
                         <div className="rounded-[1.2rem] border border-white/10 bg-white/6 px-3 py-3">
@@ -634,7 +634,7 @@ export default function HomePage() {
                             Checking
                           </p>
                           <p className="mt-2 text-xl font-semibold text-white">
-                            18.240,90 kr.
+                            18.240,90 €
                           </p>
                         </div>
                         <div className="rounded-[1.4rem] border border-white/10 bg-white/6 px-4 py-4">
@@ -642,7 +642,7 @@ export default function HomePage() {
                             Savings
                           </p>
                           <p className="mt-2 text-xl font-semibold text-white">
-                            40.087,99 kr.
+                            40.087,99 €
                           </p>
                         </div>
                       </div>

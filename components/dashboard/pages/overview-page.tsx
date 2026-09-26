@@ -33,7 +33,7 @@ export function OverviewPage() {
     unreadNotificationsCount,
   } = useDashboard();
   const portfolioAccounts = [accounts.checking, accounts.savings];
-  const welcomeTitle = `Welcome back ${state.user.firstName}.`;
+  const welcomeTitle = `Welcome back ${state.user.fullName}.`;
 
   return (
     <div className="space-y-8">
