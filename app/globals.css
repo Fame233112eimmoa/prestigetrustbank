@@ -55,6 +55,18 @@ textarea {
     opacity 180ms ease;
 }
 
+/* iOS Safari zooms into form fields with text under 16px. Kept in the base
+   layer so larger text utilities (e.g. the OTP field) still apply. */
+@layer base {
+  @media (hover: none) and (pointer: coarse) {
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
+}
+
 ::selection {
   background: rgba(200, 164, 93, 0.22);
 }
