@@ -28,30 +28,30 @@ function activity(
 }
 
 export function formatCurrency(amount: number) {
-  return new Intl.NumberFormat("en-IE", {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "EUR",
+    currency: "USD",
   }).format(amount);
 }
 
 export function createDateLabel(date = new Date()) {
-  return new Intl.DateTimeFormat("da-DK", {
+  return new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "numeric",
   }).format(date);
 }
 
-export const danishBankOptions = [
-  "Danske Bank",
-  "Nordea Bank",
-  "Jyske Bank",
-  "Sydbank",
-  "Nykredit Bank",
-  "Spar Nord Bank",
-  "Arbejdernes Landsbank",
-  "Handelsbanken Denmark",
-  "Ringkjøbing Landbobank",
-  "Lån & Spar Bank",
+export const usBankOptions = [
+  "JPMorgan Chase",
+  "Bank of America",
+  "Wells Fargo",
+  "Citibank",
+  "U.S. Bank",
+  "PNC Bank",
+  "Truist Bank",
+  "Capital One",
+  "TD Bank",
+  "Regions Bank",
 ];
 
 export const dashboardNavItems: DashboardNavItem[] = [
@@ -237,12 +237,12 @@ const notifications = [
 
 export const initialDashboardState: DashboardState = {
   user: {
-    fullName: "Maria Cox Pedersen",
+    fullName: "Maria Cox",
     firstName: "Maria",
-    email: "maria.cox.pedersen@Gmail.com",
-    phone: "+45 27 52 95 30",
+    email: "maria.cox@gmail.com",
+    phone: "+1 (212) 555-0147",
     relationshipManager: "Natalie Bennett",
-    branch: "Copenhagen Private Banking Centre",
+    branch: "New York Private Banking Center",
     memberSince: "2014",
     clientId: "PTB-10248",
   },
@@ -391,29 +391,29 @@ export const initialDashboardState: DashboardState = {
     },
     {
       id: "recipient-bank-1",
-      name: "Østerbro Property Services",
+      name: "Northline Property Services",
       type: "Bank",
       destinationLabel: "•••• 1021",
-      bankName: "Danske Bank",
-      routingNumber: "203012",
+      bankName: "JPMorgan Chase",
+      routingNumber: "021000021",
       accountNumber: "45521021",
     },
     {
       id: "recipient-bank-2",
-      name: "Copenhagen Mortgage Services",
+      name: "Harbor Mortgage Services",
       type: "Bank",
       destinationLabel: "•••• 4990",
-      bankName: "Nordea Bank",
-      routingNumber: "401276",
+      bankName: "Bank of America",
+      routingNumber: "026009593",
       accountNumber: "78234990",
     },
     {
       id: "recipient-bank-3",
-      name: "Aarhus Logistics ApS",
+      name: "Apex Logistics LLC",
       type: "Bank",
       destinationLabel: "•••• 5077",
-      bankName: "Jyske Bank",
-      routingNumber: "309674",
+      bankName: "Wells Fargo",
+      routingNumber: "121000248",
       accountNumber: "63455077",
     },
   ],
@@ -425,21 +425,21 @@ export const initialDashboardState: DashboardState = {
       {
         id: "device-1",
         name: "MacBook Pro - Safari",
-        location: "Copenhagen, Denmark",
+        location: "New York, United States",
         lastActive: "Active now",
         status: "Current Session",
       },
       {
         id: "device-2",
         name: "iPhone 15 - Prestige App",
-        location: "Copenhagen, Denmark",
+        location: "New York, United States",
         lastActive: "Today, 8:42 AM",
         status: "Trusted Device",
       },
       {
         id: "device-3",
         name: "iPad Air - Web Access",
-        location: "Aarhus, Denmark",
+        location: "Boston, United States",
         lastActive: "Apr 18, 4:12 PM",
         status: "Trusted Device",
       },
@@ -479,11 +479,11 @@ export const initialDashboardState: DashboardState = {
   ],
   settings: {
     profile: {
-      fullName: "Maria Cox Pedersen",
-      email: "maria.cox.pedersen@prestigetrustbank.com",
-      phone: "+45 27 52 95 30",
-      city: "Copenhagen",
-      country: "Denmark",
+      fullName: "Maria Cox",
+      email: "maria.cox@prestigetrustbank.com",
+      phone: "+1 (212) 555-0147",
+      city: "New York",
+      country: "United States",
       occupation: "Managing Partner",
       relationshipManager: "Natalie Bennett",
     },
@@ -495,7 +495,7 @@ export const initialDashboardState: DashboardState = {
     },
     appearance: {
       theme: "Classic Light",
-      language: "Danish (DK)",
+      language: "English (US)",
     },
   },
 };

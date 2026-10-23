@@ -140,7 +140,7 @@ export type NotificationSettings = {
 export type AppearanceTheme = "Classic Light" | "Midnight";
 
 export type LanguagePreference =
-  | "Danish (DK)"
+  | "English (US)"
   | "French (FR)"
   | "Spanish (ES)";
 

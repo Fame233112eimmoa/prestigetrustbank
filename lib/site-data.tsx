@@ -149,7 +149,7 @@ export const footerGroups = [
 export const contactDetails = [
   {
     label: "Client support",
-    value: "+45 33 12 34 56",
+    value: "+1 (800) 555-0145",
     icon: PhoneIcon,
   },
   {
@@ -159,12 +159,12 @@ export const contactDetails = [
   },
   {
     label: "Head office",
-    value: "12 Nyhavn, 1051 Copenhagen K",
+    value: "New York, NY 10001, United States",
     icon: MapPinIcon,
   },
   {
     label: "Service hours",
-    value: "Mon-Fri, 8:00 AM-6:00 PM CET",
+    value: "Mon-Fri, 8:00 AM-6:00 PM ET",
     icon: ClockIcon,
   },
 ];

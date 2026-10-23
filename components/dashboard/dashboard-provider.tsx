@@ -310,10 +310,10 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
         return current;
       }
 
-      if (resolvedType === "Bank" && !/^\d{6}$/.test(resolvedRouting)) {
+      if (resolvedType === "Bank" && !/^\d{9}$/.test(resolvedRouting)) {
         result = {
           ok: false,
-          message: "Enter a valid 6-digit registration number.",
+          message: "Enter a valid 9-digit routing number.",
         };
         return current;
       }
@@ -331,7 +331,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
           ? [resolvedEmail, referenceLabel]
           : [
               resolvedBankName,
-              `Registration number ${resolvedRouting}`,
+              `Routing number ${resolvedRouting}`,
               `Acct ${referenceLabel || maskAccountNumber(resolvedAccountNumber)}`,
             ];
       const detailLabel = detailParts.filter(Boolean).join(" • ");
@@ -417,7 +417,7 @@ export function DashboardStateProvider({ children }: { children: ReactNode }) {
           ? [resolvedEmail]
           : [
               resolvedBankName,
-              resolvedRouting ? `Registration number ${resolvedRouting}` : "",
+              resolvedRouting ? `Routing number ${resolvedRouting}` : "",
               resolvedAccountNumber
                 ? `Acct ${maskAccountNumber(resolvedAccountNumber)}`
                 : "",

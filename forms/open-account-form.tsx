@@ -115,7 +115,7 @@ export function OpenAccountForm() {
           error={errors.phone}
           value={values.phone}
           onChange={(value) => update("phone", value)}
-          placeholder="+45 20 12 34 56"
+          placeholder="+1 (212) 555-0147"
         />
       </div>
 
@@ -145,14 +145,14 @@ export function OpenAccountForm() {
           error={errors.city}
           value={values.city}
           onChange={(value) => update("city", value)}
-          placeholder="Copenhagen"
+          placeholder="New York"
         />
         <InputField
           label="Country"
           error={errors.country}
           value={values.country}
           onChange={(value) => update("country", value)}
-          placeholder="Denmark"
+          placeholder="United States"
         />
       </div>
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 
-import { formatCurrency, danishBankOptions } from "@/lib/dashboard-data";
+import { formatCurrency, usBankOptions } from "@/lib/dashboard-data";
 import type {
   AccountId,
   ExternalTransferInput,
@@ -58,10 +58,10 @@ const PROCESSING_DELAY_MS = 1800;
 
 function getBankSelectValue(bankName?: string) {
   if (!bankName) {
-    return danishBankOptions[0] ?? CUSTOM_BANK_ENTRY;
+    return usBankOptions[0] ?? CUSTOM_BANK_ENTRY;
   }
 
-  return danishBankOptions.includes(bankName) ? bankName : CUSTOM_BANK_ENTRY;
+  return usBankOptions.includes(bankName) ? bankName : CUSTOM_BANK_ENTRY;
 }
 
 function userDefaults(recipient?: TransferRecipient) {
@@ -78,7 +78,7 @@ function bankDefaults(recipient?: TransferRecipient) {
     recipientName: recipient?.name ?? "",
     bankName: getBankSelectValue(recipient?.bankName),
     customBankName:
-      recipient?.bankName && !danishBankOptions.includes(recipient.bankName)
+      recipient?.bankName && !usBankOptions.includes(recipient.bankName)
         ? recipient.bankName
         : "",
     routingNumber: recipient?.routingNumber ?? "",
@@ -88,17 +88,6 @@ function bankDefaults(recipient?: TransferRecipient) {
 
 function maskAccountNumber(accountNumber: string) {
   return `•••• ${accountNumber.slice(-4)}`;
-}
-
-function formatRegistrationNumber(routingNumber: string) {
-  if (!/^\d{6}$/.test(routingNumber)) {
-    return routingNumber;
-  }
-
-  return `${routingNumber.slice(0, 2)}-${routingNumber.slice(
-    2,
-    4
-  )}-${routingNumber.slice(4)}`;
 }
 
 export function ExternalTransferForm() {
@@ -187,8 +176,8 @@ export function ExternalTransferForm() {
   const previewRecipientName =
     form.recipientName || selectedRecipient?.name || "Transfer preview";
   const previewEmail = form.email || selectedRecipient?.email || "Enter recipient email";
-  const previewRegistrationNumber =
-    form.routingNumber || selectedRecipient?.routingNumber || "Enter registration number";
+  const previewRoutingNumber =
+    form.routingNumber || selectedRecipient?.routingNumber || "Enter routing number";
   const previewAccountNumber =
     form.accountNumber || selectedRecipient?.destinationLabel || "Enter account number";
 
@@ -271,8 +260,8 @@ export function ExternalTransferForm() {
       return { error: "Enter the destination bank name." };
     }
 
-    if (form.recipientType === "Bank" && !/^\d{6}$/.test(resolvedRoutingNumber)) {
-      return { error: "Enter a valid 6-digit registration number." };
+    if (form.recipientType === "Bank" && !/^\d{9}$/.test(resolvedRoutingNumber)) {
+      return { error: "Enter a valid 9-digit routing number." };
     }
 
     if (
@@ -287,7 +276,7 @@ export function ExternalTransferForm() {
         ? [resolvedEmail, selectedRecipient?.destinationLabel ?? ""].filter(Boolean)
         : [
             resolvedTransferBank,
-            `Registration number ${formatRegistrationNumber(resolvedRoutingNumber)}`,
+            `Routing number ${resolvedRoutingNumber}`,
             `Account ${
               selectedRecipient?.destinationLabel ??
               maskAccountNumber(resolvedAccountNumber)
@@ -772,7 +761,7 @@ export function ExternalTransferForm() {
                     }
                     className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
                   >
-                    {danishBankOptions.map((bank) => (
+                    {usBankOptions.map((bank) => (
                       <option key={bank} value={bank}>
                         {bank}
                       </option>
@@ -783,13 +772,13 @@ export function ExternalTransferForm() {
 
                 <label className="space-y-2.5">
                   <span className="block text-sm font-medium text-[var(--color-slate-950)]">
-                    Registration number
+                    Routing number
                   </span>
                   <input
                     type="text"
                     inputMode="numeric"
                     pattern="[0-9]*"
-                    maxLength={6}
+                    maxLength={9}
                     value={form.routingNumber}
                     onChange={(event) =>
                       patchForm((current) => ({
@@ -797,10 +786,10 @@ export function ExternalTransferForm() {
                         recipientId: MANUAL_ENTRY,
                         routingNumber: event.target.value
                           .replace(/\D/g, "")
-                          .slice(0, 6),
+                          .slice(0, 9),
                       }))
                     }
-                    placeholder="6-digit registration number"
+                    placeholder="9-digit routing number"
                     className="w-full rounded-2xl border border-[var(--color-line)] bg-white px-5 py-3.5 text-[var(--color-navy-950)] outline-none focus:border-[rgba(200,164,93,0.55)] focus:ring-4 focus:ring-[rgba(200,164,93,0.12)]"
                   />
                 </label>
@@ -909,7 +898,7 @@ export function ExternalTransferForm() {
               <>
                 <p className="mt-1">Send to Bank</p>
                 <p>{resolvedBankName || "Select or enter bank name"}</p>
-                <p>{previewRegistrationNumber}</p>
+                <p>{previewRoutingNumber}</p>
                 <p>{previewAccountNumber}</p>
               </>
             )}
