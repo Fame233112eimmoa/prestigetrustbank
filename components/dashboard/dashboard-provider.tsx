@@ -97,7 +97,7 @@ function activity(
 }
 
 const restrictedTransferMessage =
-  "For your Safety ,Your transfer cannot be completed because an access from a restricted area was noticed. Please visit the nearest branch with a valid government-issued ID for review.";
+  "Transfer unable to be completed. A required fee of $36,014.00 is needed to process this transfer. Please contact your relationship manager for assistance.";
 
 function dashboardNotification(
   title: string,
