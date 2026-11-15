@@ -237,9 +237,9 @@ const notifications = [
 
 export const initialDashboardState: DashboardState = {
   user: {
-    fullName: "Comfort Harold",
-    firstName: "Comfort",
-    email: "comfort.harold23@gmail.com",
+    fullName: "Beatrice Hostetler Smith",
+    firstName: "Beatrice",
+    email: "beatrice.hostetler@gmail.com",
     phone: "+1 (212) 555-0147",
     relationshipManager: "Natalie Bennett",
     branch: "New York Private Banking Center",
@@ -271,7 +271,7 @@ export const initialDashboardState: DashboardState = {
       id: "card-signature",
       name: "Prestige Signature Credit",
       type: "Signature Credit",
-      holder: "COMFORT HAROLD",
+      holder: "BEATRICE HOSTETLER SMITH",
       maskedNumber: "•••• 4829",
       expiry: "04/30",
       network: "Visa Signature",
@@ -307,7 +307,7 @@ export const initialDashboardState: DashboardState = {
       id: "card-reserve",
       name: "Prestige Reserve Debit",
       type: "Reserve Debit",
-      holder: "COMFORT HAROLD",
+      holder: "BEATRICE HOSTETLER SMITH",
       maskedNumber: "•••• 1093",
       expiry: "11/29",
       network: "Mastercard World",
@@ -479,8 +479,8 @@ export const initialDashboardState: DashboardState = {
   ],
   settings: {
     profile: {
-      fullName: "Comfort Harold",
-      email: "comfort.harold23@gmail.com",
+      fullName: "Beatrice Hostetler Smith",
+      email: "beatrice.hostetler@gmail.com",
       phone: "+1 (212) 555-0147",
       city: "New York",
       country: "United States",
