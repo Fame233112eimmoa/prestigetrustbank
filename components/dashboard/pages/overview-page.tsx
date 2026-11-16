@@ -33,6 +33,12 @@ export function OverviewPage() {
     unreadNotificationsCount,
   } = useDashboard();
   const portfolioAccounts = [accounts.checking, accounts.savings];
+  const currentYear = new Date().getFullYear();
+  const recentActivities = [...state.activities].sort(
+    (first, second) =>
+      Date.parse(`${second.dateLabel} ${currentYear}`) -
+      Date.parse(`${first.dateLabel} ${currentYear}`)
+  );
   const welcomeTitle = `Welcome back ${state.user.fullName}.`;
 
   return (
@@ -257,7 +263,7 @@ export function OverviewPage() {
           <div className="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
             <ActivityList
               title="Recent Activity"
-              items={state.activities.slice(0, 6)}
+              items={recentActivities.slice(0, 6)}
             />
             <QuickActionsPanel />
           </div>
