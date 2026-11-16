@@ -15,8 +15,14 @@ const secondaryActionClass =
 export function PaymentsPage() {
   const { state, transferRecipients } = useDashboard();
 
+  const currentYear = new Date().getFullYear();
   const paymentActivity = state.activities
     .filter((item) => item.kind === "transfer" || item.kind === "payment")
+    .sort(
+      (first, second) =>
+        Date.parse(`${second.dateLabel} ${currentYear}`) -
+        Date.parse(`${first.dateLabel} ${currentYear}`)
+    )
     .slice(0, 6);
 
   return (
