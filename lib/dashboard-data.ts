@@ -134,7 +134,7 @@ const savingsTransactions = [
     "Interest payment.",
     84.55,
     "credit",
-    "Nov 17",
+    "Nov 14",
     "Completed",
     "deposit"
   ),
@@ -187,7 +187,7 @@ const globalActivities = [
     "Card payment.",
     280,
     "debit",
-    "Nov 18",
+    "Nov 15",
     "Completed",
     "card"
   ),
@@ -214,15 +214,15 @@ const notifications = [
   notification(
     "notification-2",
     "Payment Due",
-    "Signature Credit payment due Nov 26.",
-    "Nov 20",
+    "Signature Credit payment due Nov 16.",
+    "Nov 16",
     "warning"
   ),
   notification(
     "notification-3",
     "Secure Message",
     "Travel notice confirmation received.",
-    "Nov 20",
+    "Nov 15",
     "info"
   ),
   notification(
@@ -252,7 +252,7 @@ export const initialDashboardState: DashboardState = {
       name: "Prestige Everyday Checking",
       type: "Checking Account",
       maskedNumber: "•••• 4182",
-      availableBalance: 665120.90,
+      availableBalance: 576023.10,
       status: "Active",
       recentTransactions: checkingTransactions,
     },
