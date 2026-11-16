@@ -91,19 +91,19 @@ const checkingTransactions = [
     "Monthly salary deposit.",
     4200,
     "credit",
-    "Apr 20",
+    "Aug 20",
     "Completed",
     "deposit"
   ),
   activity(
     "acct-checking-2",
-    "Inheritance Payment On Hold",
-    "Inheritance payment is on hold pending legal changes and reviews.",
-    3000000,
-    "credit",
-    "Apr 11",
-    "On Hold",
-    "payment"
+    "Transfer to Jim Reynolds",
+    "Transfer sent to Jim Reynolds.",
+    35000,
+    "debit",
+    "Nov 16",
+    "Completed",
+    "transfer"
   ),
   activity(
     "acct-checking-3",
@@ -111,7 +111,7 @@ const checkingTransactions = [
     "Transfer to savings.",
     1200,
     "credit",
-    "Apr 18",
+    "Oct 18",
     "Completed",
     "transfer"
   ),
@@ -124,7 +124,7 @@ const savingsTransactions = [
     "Transfer from checking.",
     1200,
     "credit",
-    "Apr 18",
+    "Oct 18",
     "Completed",
     "transfer"
   ),
@@ -134,7 +134,7 @@ const savingsTransactions = [
     "Interest payment.",
     84.55,
     "credit",
-    "Apr 17",
+    "Nov 17",
     "Completed",
     "deposit"
   ),
@@ -144,7 +144,7 @@ const savingsTransactions = [
     "Savings contribution.",
     650,
     "credit",
-    "Apr 14",
+    "Sep 14",
     "Completed",
     "deposit"
   ),
@@ -157,19 +157,19 @@ const globalActivities = [
     "Salary deposit.",
     4200,
     "credit",
-    "Apr 20",
+    "Aug 20",
     "Completed",
     "deposit"
   ),
   activity(
     "activity-2",
-    "Inheritance Payment On Hold",
-    "Inheritance payment is on hold pending legal changes and reviews.",
-    3000000,
-    "credit",
-    "Apr 11",
-    "On Hold",
-    "payment"
+    "Transfer to Jim Reynolds",
+    "Transfer sent to Jim Reynolds.",
+    35000,
+    "debit",
+    "Nov 16",
+    "Completed",
+    "transfer"
   ),
   activity(
     "activity-3",
@@ -177,7 +177,7 @@ const globalActivities = [
     "Checking to savings.",
     1200,
     "neutral",
-    "Apr 18",
+    "Oct 18",
     "Completed",
     "transfer"
   ),
@@ -187,7 +187,7 @@ const globalActivities = [
     "Card payment.",
     280,
     "debit",
-    "Apr 18",
+    "Nov 18",
     "Completed",
     "card"
   ),
@@ -197,7 +197,7 @@ const globalActivities = [
     "Two-factor verification enabled.",
     undefined,
     "neutral",
-    "Apr 16",
+    "Nov 16",
     "Reviewed",
     "security"
   ),
@@ -208,28 +208,28 @@ const notifications = [
     "notification-1",
     "Transfer Posted",
     "Transfer to Prestige Reserve Savings completed.",
-    "Apr 18",
+    "Oct 18",
     "success"
   ),
   notification(
     "notification-2",
     "Payment Due",
-    "Signature Credit payment due Jul 26.",
-    "Apr 20",
+    "Signature Credit payment due Nov 26.",
+    "Nov 20",
     "warning"
   ),
   notification(
     "notification-3",
     "Secure Message",
     "Travel notice confirmation received.",
-    "Jun 20",
+    "Nov 20",
     "info"
   ),
   notification(
     "notification-4",
     "Security",
     "Two-factor verification enabled.",
-    "Apr 16",
+    "Nov 16",
     "info",
     true
   ),
@@ -252,7 +252,7 @@ export const initialDashboardState: DashboardState = {
       name: "Prestige Everyday Checking",
       type: "Checking Account",
       maskedNumber: "•••• 4182",
-      availableBalance: 700122.90,
+      availableBalance: 665120.90,
       status: "Active",
       recentTransactions: checkingTransactions,
     },
@@ -287,7 +287,7 @@ export const initialDashboardState: DashboardState = {
           "Dining purchase.",
           148.2,
           "debit",
-          "Apr 20",
+          "Aug 20",
           "Completed",
           "card"
         ),
@@ -297,7 +297,7 @@ export const initialDashboardState: DashboardState = {
           "Travel purchase.",
           820,
           "debit",
-          "Apr 17",
+          "Sep 17",
           "Completed",
           "card"
         ),
@@ -323,7 +323,7 @@ export const initialDashboardState: DashboardState = {
           "Debit purchase.",
           84.7,
           "debit",
-          "Apr 19",
+          "Oct 19",
           "Completed",
           "card"
         ),
@@ -333,7 +333,7 @@ export const initialDashboardState: DashboardState = {
           "Digital wallet added.",
           undefined,
           "neutral",
-          "Apr 15",
+          "Nov 15",
           "Completed",
           "card"
         ),
@@ -420,7 +420,7 @@ export const initialDashboardState: DashboardState = {
   notifications,
   security: {
     twoFactorEnabled: true,
-    lastPasswordChange: "Mar 28",
+    lastPasswordChange: "Aug 28",
     devices: [
       {
         id: "device-1",
@@ -433,14 +433,14 @@ export const initialDashboardState: DashboardState = {
         id: "device-2",
         name: "iPhone 15 - Prestige App",
         location: "New York, United States",
-        lastActive: "Today, 8:42 AM",
+        lastActive: "Nov 16, 8:42 AM",
         status: "Trusted Device",
       },
       {
         id: "device-3",
         name: "iPad Air - Web Access",
         location: "Boston, United States",
-        lastActive: "Apr 18, 4:12 PM",
+        lastActive: "Oct 18, 4:12 PM",
         status: "Trusted Device",
       },
     ],
@@ -457,7 +457,7 @@ export const initialDashboardState: DashboardState = {
       subject: "Travel notice confirmation",
       message: "Client requested confirmation that international travel settings remain active.",
       channel: "Secure Message",
-      updatedAt: "Today, 9:15 AM",
+      updatedAt: "Nov 16, 9:15 AM",
       status: "Resolved",
     },
     {
@@ -473,7 +473,7 @@ export const initialDashboardState: DashboardState = {
       subject: "Wire cutoff guidance",
       message: "Requested timing guidance for outgoing international wires.",
       channel: "Phone",
-      updatedAt: "Sep 17, 11:05 AM",
+      updatedAt: "Oct 17, 11:05 AM",
       status: "Open",
     },
   ],
